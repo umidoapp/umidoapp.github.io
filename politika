@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>EmCon – Gizlilik Politikası, Kullanım Koşulları ve Risk Bildirimi</title>
+
+<meta
+    name="description"
+    content="EmCon – Emergency Connection mobil uygulamasına ilişkin gizlilik politikası, kişisel verilerin işlenmesine yönelik aydınlatma metni, kullanım koşulları ve risk bildirimi."
+>
+
+<meta name="robots" content="index, follow">
+
+<style>
+    :root {
+        --page-bg: #07111f;
+        --page-bg-soft: #0b1728;
+        --surface: rgba(17, 31, 51, 0.96);
+        --surface-soft: rgba(25, 43, 68, 0.82);
+        --surface-light: #f6f8fb;
+        --text-main: #ecf3fb;
+        --text-muted: #a9bad0;
+        --text-dark: #162235;
+        --accent: #36d3c4;
+        --accent-dark: #0ca899;
+        --blue: #57a8ff;
+        --warning: #ffbd4a;
+        --danger: #ff6f72;
+        --success: #43d18d;
+        --border: rgba(154, 184, 218, 0.2);
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --radius-sm: 10px;
+        --content-width: 1180px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+            radial-gradient(circle at 12% 8%, rgba(54, 211, 196, 0.13), transparent 29%),
+            radial-gradient(circle at 88% 2%, rgba(87, 168, 255, 0.13), transparent 28%),
+            linear-gradient(155deg, var(--page-bg) 0%, var(--page-bg-soft) 58%, #091423 100%);
+        color: var(--text-main);
+        font-family:
+            Inter,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif;
+        font-size: 16px;
+        line-height: 1.72;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        overflow-wrap: anywhere;
+    }
+
+    a:hover,
+    a:focus {
+        color: #79eee4;
+        text-decoration: underline;
+    }
+
+    button,
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .page-shell {
+        width: min(calc(100% - 32px), var(--content-width));
+        margin: 0 auto;
+        padding: 28px 0 70px;
+    }
+
+    .hero {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 22px;
+        padding: clamp(28px, 6vw, 64px);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        background:
+            linear-gradient(
+                135deg,
+                rgba(16, 39, 64, 0.96),
+                rgba(7, 24, 42, 0.98)
+            );
+        box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        top: -180px;
+        right: -100px;
+        border-radius: 50%;
+        background: rgba(54, 211, 196, 0.11);
+        filter: blur(2px);
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        bottom: -150px;
+        left: -80px;
+        border-radius: 50%;
+        background: rgba(87, 168, 255, 0.1);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 920px;
+    }
+
+    .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 18px;
+        padding: 8px 13px;
+        border: 1px solid rgba(54, 211, 196, 0.3);
+        border-radius: 999px;
+        background: rgba(54, 211, 196, 0.08);
+        color: #aaf7ef;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 17px var(--accent);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        margin-top: 0;
+        line-height: 1.25;
+    }
+
+    h1 {
+        max-width: 900px;
+        margin-bottom: 18px;
+        font-size: clamp(2.1rem, 5vw, 4.25rem);
+        letter-spacing: -0.045em;
+    }
+
+    h2 {
+        margin-bottom: 19px;
+        font-size: clamp(1.45rem, 3vw, 2rem);
+        color: #ffffff;
+        letter-spacing: -0.025em;
+    }
+
+    h3 {
+        margin-top: 30px;
+        margin-bottom: 13px;
+        font-size: 1.18rem;
+        color: #dff9f7;
+    }
+
+    h4 {
+        margin-top: 22px;
+        margin-bottom: 10px;
+        color: #d7e7f8;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+
+    .hero-lead {
+        max-width: 840px;
+        margin-bottom: 25px;
+        color: #c4d4e6;
+        font-size: clamp(1rem, 2vw, 1.16rem);
+    }
+
+    .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 29px;
+    }
+
+    .meta-card {
+        padding: 15px 17px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.035);
+    }
+
+    .meta-label {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text-muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    .meta-value {
+        display: block;
+        color: #ffffff;
+        font-size: 0.94rem;
+        font-weight: 650;
+        overflow-wrap: anywhere;
+    }
+
+    .action-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 10px 17px;
+        border: 1px solid rgba(54, 211, 196, 0.34);
+        border-radius: 11px;
+        background: rgba(54, 211, 196, 0.11);
+        color: #d7fffb;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background: rgba(54, 211, 196, 0.18);
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .critical-notice {
+        margin-bottom: 22px;
+        padding: 22px 24px;
+        border: 1px solid rgba(255, 111, 114, 0.44);
+        border-left: 5px solid var(--danger);
+        border-radius: var(--radius-md);
+        background: linear-gradient(
+            135deg,
+            rgba(86, 24, 33, 0.72),
+            rgba(50, 20, 31, 0.66)
+        );
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+    }
+
+    .critical-notice strong {
+        display: block;
+        margin-bottom: 7px;
+        color: #ffb8ba;
+        font-size: 1.04rem;
+    }
+
+    .critical-notice p:last-child {
+        margin-bottom: 0;
+    }
+
+    .layout {
+        display: grid;
+        grid-template-columns: 290px minmax(0, 1fr);
+        gap: 22px;
+        align-items: start;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 18px;
+        padding: 22px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: rgba(13, 28, 47, 0.91);
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(12px);
+    }
+
+    .sidebar-title {
+        margin-bottom: 13px;
+        color: #ffffff;
+        font-size: 0.91rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    .toc {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .toc li + li {
+        margin-top: 5px;
+    }
+
+    .toc a {
+        display: block;
+        padding: 8px 10px;
+        border-radius: 8px;
+        color: #b7c7da;
+        font-size: 0.88rem;
+        line-height: 1.35;
+    }
+
+    .toc a:hover,
+    .toc a:focus {
+        background: rgba(54, 211, 196, 0.09);
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .document {
+        min-width: 0;
+    }
+
+    .section {
+        scroll-margin-top: 22px;
+        margin-bottom: 22px;
+        padding: clamp(23px, 4vw, 38px);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.17);
+    }
+
+    .section-number {
+        display: inline-flex;
+        margin-bottom: 12px;
+        color: var(--accent);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .part-divider {
+        margin: 40px 0 22px;
+        padding: 29px;
+        border: 1px solid rgba(87, 168, 255, 0.28);
+        border-radius: var(--radius-md);
+        background:
+            linear-gradient(
+                135deg,
+                rgba(87, 168, 255, 0.12),
+                rgba(54, 211, 196, 0.07)
+            );
+        text-align: center;
+    }
+
+    .part-divider small {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--blue);
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .part-divider h2 {
+        margin-bottom: 8px;
+    }
+
+    .part-divider p {
+        max-width: 780px;
+        margin: 0 auto;
+        color: var(--text-muted);
+    }
+
+    .callout {
+        margin: 21px 0;
+        padding: 18px 20px;
+        border-radius: var(--radius-sm);
+        background: var(--surface-soft);
+        border: 1px solid var(--border);
+    }
+
+    .callout.info {
+        border-left: 4px solid var(--blue);
+    }
+
+    .callout.success {
+        border-left: 4px solid var(--success);
+    }
+
+    .callout.warning {
+        border-left: 4px solid var(--warning);
+        background: rgba(83, 61, 25, 0.34);
+    }
+
+    .callout.danger {
+        border-left: 4px solid var(--danger);
+        background: rgba(82, 29, 37, 0.38);
+    }
+
+    .callout strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #ffffff;
+    }
+
+    .callout p:last-child,
+    .callout ul:last-child {
+        margin-bottom: 0;
+    }
+
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: 18px;
+        padding-left: 23px;
+    }
+
+    li + li {
+        margin-top: 7px;
+    }
+
+    .risk-list li::marker {
+        color: var(--danger);
+    }
+
+    .responsibility-list li::marker {
+        color: var(--warning);
+    }
+
+    .privacy-list li::marker {
+        color: var(--accent);
+    }
+
+    .table-wrap {
+        width: 100%;
+        margin: 21px 0;
+        overflow-x: auto;
+        border: 1px solid var(--border);
+        border-radius: 13px;
+    }
+
+    table {
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+        background: rgba(5, 17, 30, 0.48);
+    }
+
+    th,
+    td {
+        padding: 15px 16px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        text-align: left;
+    }
+
+    th {
+        background: rgba(54, 211, 196, 0.085);
+        color: #dffffb;
+        font-size: 0.82rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    }
+
+    td {
+        color: #c7d5e5;
+        font-size: 0.92rem;
+    }
+
+    tr:last-child td {
+        border-bottom: 0;
+    }
+
+    code {
+        padding: 2px 6px;
+        border: 1px solid rgba(154, 184, 218, 0.16);
+        border-radius: 6px;
+        background: rgba(4, 13, 23, 0.65);
+        color: #aaf7ef;
+        font-family:
+            "SFMono-Regular",
+            Consolas,
+            "Liberation Mono",
+            monospace;
+        font-size: 0.88em;
+    }
+
+    details {
+        margin: 13px 0;
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        background: rgba(7, 19, 33, 0.45);
+    }
+
+    summary {
+        padding: 15px 17px;
+        color: #eef7ff;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    details > div {
+        padding: 0 17px 17px;
+        color: #c5d4e5;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+        margin: 20px 0;
+    }
+
+    .service-card {
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: rgba(7, 19, 33, 0.48);
+    }
+
+    .service-card strong {
+        display: block;
+        margin-bottom: 6px;
+        color: #ffffff;
+    }
+
+    .service-card span {
+        display: block;
+        color: var(--text-muted);
+        font-size: 0.89rem;
+    }
+
+    .contact-card {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .contact-item {
+        padding: 17px;
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        background: rgba(7, 19, 33, 0.5);
+    }
+
+    .contact-item small {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .contact-item strong {
+        display: block;
+        overflow-wrap: anywhere;
+    }
+
+    .footer {
+        margin-top: 25px;
+        padding: 24px;
+        color: #91a5bc;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    .footer strong {
+        color: #d5e3f1;
+    }
+
+    .legal-emphasis {
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    .muted {
+        color: var(--text-muted);
+    }
+
+    @media (max-width: 960px) {
+        .layout {
+            grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+            position: relative;
+            top: auto;
+        }
+
+        .meta-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 680px) {
+        body {
+            font-size: 15px;
+        }
+
+        .page-shell {
+            width: min(calc(100% - 20px), var(--content-width));
+            padding-top: 10px;
+        }
+
+        .hero,
+        .section,
+        .part-divider {
+            border-radius: 16px;
+        }
+
+        .hero {
+            padding: 27px 21px;
+        }
+
+        .meta-grid,
+        .service-grid,
+        .contact-card {
+            grid-template-columns: 1fr;
+        }
+
+        .critical-notice {
+            padding: 19px;
+        }
+
+        .section {
+            padding: 22px 19px;
+        }
+    }
+
+    @media print {
+        :root {
+            --text-main: #111111;
+            --text-muted: #444444;
+            --border: #d8d8d8;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-size: 11pt;
+        }
+
+        .page-shell {
+            width: 100%;
+            padding: 0;
+        }
+
+        .hero,
+        .section,
+        .critical-notice,
+        .part-divider,
+        .sidebar {
+            box-shadow: none;
+            background: #ffffff;
+            color: #111111;
+            border-color: #cccccc;
+        }
+
+        .layout {
+            display: block;
+        }
+
+        .sidebar,
+        .action-row {
+            display: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .meta-value,
+        .callout strong,
+        .service-card strong {
+            color: #111111;
+        }
+
+        p,
+        li,
+        td,
+        .hero-lead,
+        .muted {
+            color: #222222;
+        }
+
+        a {
+            color: #111111;
+            text-decoration: underline;
+        }
+
+        .section {
+            break-inside: avoid;
+        }
+
+        table {
+            background: #ffffff;
+        }
+
+        th {
+            background: #eeeeee;
+            color: #111111;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+    <main class="page-shell">
+
+```
+    <header class="hero">
+        <div class="hero-content">
+            <div class="eyebrow">EmCon – Emergency Connection</div>
+
+            <h1>
+                Gizlilik Politikası, KVKK Aydınlatma Metni,
+                Kullanım Koşulları ve Risk Bildirimi
+            </h1>
+
+            <p class="hero-lead">
+                Bu metin; EmCon mobil uygulamasının kişisel verilere erişim ve
+                veri işleme esaslarını, yakın cihazlar arasında gerçekleştirilen
+                haberleşmenin niteliğini, üçüncü taraf hizmetlerini, kullanıcı
+                sorumluluklarını, teknik sınırlamaları ve uygulamanın kullanımından
+                doğabilecek riskleri açıklamaktadır.
+            </p>
+
+            <div class="meta-grid">
+                <div class="meta-card">
+                    <span class="meta-label">Uygulama</span>
+                    <span class="meta-value">EmCon – Emergency Connection</span>
+                </div>
+
+                <div class="meta-card">
+                    <span class="meta-label">Paket Adı</span>
+                    <span class="meta-value">com.emcon.app</span>
+                </div>
+
+                <div class="meta-card">
+                    <span class="meta-label">Geliştirici</span>
+                    <span class="meta-value">Ümit Faruk Yenici</span>
+                </div>
+
+                <div class="meta-card">
+                    <span class="meta-label">Tarih</span>
+                    <span class="meta-value">
+                        İlk yürürlük: 29.05.2026<br>
+                        Son güncelleme: 09.07.2026
+                    </span>
+                </div>
+            </div>
+
+            <div class="action-row">
+                <a class="button" href="#gizlilik-politikasi">
+                    Gizlilik Politikasına Git
+                </a>
+
+                <a class="button" href="#kullanim-kosullari">
+                    Kullanım Koşullarına Git
+                </a>
+
+                <button class="button" type="button" onclick="window.print()">
+                    Yazdır / PDF Olarak Kaydet
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="critical-notice" aria-label="Kritik güvenlik bildirimi">
+        <strong>Önemli güvenlik ve sorumluluk bildirimi</strong>
+
+        <p>
+            EmCon; resmî bir acil çağrı sistemi, kamu güvenliği hizmeti,
+            sertifikalı haberleşme cihazı, tıbbi cihaz, profesyonel telsiz
+            sistemi, seyrüsefer sistemi veya kesintisiz haberleşme garantisi
+            verilen bir hizmet değildir.
+        </p>
+
+        <p>
+            Uygulama; cep telefonu, işletim sistemi, batarya, mikrofon,
+            Bluetooth, Wi-Fi, Google Play Hizmetleri, çevresel sinyal
+            koşulları ve diğer kullanıcı cihazlarına bağlı olarak çalışır.
+            Acil, hayati veya güvenlik açısından kritik durumlarda yalnızca
+            EmCon’a güvenilmemeli; bulunulan yerdeki resmî acil çağrı,
+            kolluk, sağlık, itfaiye, afet veya yol yardım hizmetlerine
+            doğrudan başvurulmalıdır.
+        </p>
+    </section>
+
+    <div class="layout">
+
+        <aside class="sidebar" aria-label="İçindekiler">
+            <div class="sidebar-title">İçindekiler</div>
+
+            <ol class="toc">
+                <li><a href="#gizlilik-politikasi">A. Gizlilik Politikası</a></li>
+                <li><a href="#kapsam">1. Kapsam ve temel esaslar</a></li>
+                <li><a href="#veri-sorumlusu">2. Veri sorumlusu</a></li>
+                <li><a href="#isleme-modeli">3. Uygulamanın veri işleme modeli</a></li>
+                <li><a href="#veri-kategorileri">4. İşlenen veri kategorileri</a></li>
+                <li><a href="#isleme-amaclari">5. Veri işleme amaçları</a></li>
+                <li><a href="#hukuki-sebepler">6. Toplama yöntemi ve hukuki sebepler</a></li>
+                <li><a href="#paylasim">7. Veri paylaşımı ve aktarım</a></li>
+                <li><a href="#saklama">8. Saklama ve silme</a></li>
+                <li><a href="#guvenlik">9. Veri güvenliği</a></li>
+                <li><a href="#izinler">10. Cihaz izinleri</a></li>
+                <li><a href="#cocuklar">11. Çocukların gizliliği</a></li>
+                <li><a href="#ucuncu-taraflar">12. Üçüncü taraf hizmetleri</a></li>
+                <li><a href="#kullanici-haklari">13. Kullanıcı hakları ve başvuru</a></li>
+                <li><a href="#kullanim-kosullari">B. Kullanım Koşulları</a></li>
+                <li><a href="#kullanici-sorumluluklari">14. Kullanıcı sorumlulukları</a></li>
+                <li><a href="#operasyonel-riskler">15. Teknik ve operasyonel riskler</a></li>
+                <li><a href="#surus-guvenligi">16. Sürüş ve saha güvenliği</a></li>
+                <li><a href="#konum-riskleri">17. Konum ve harita riskleri</a></li>
+                <li><a href="#ses-riskleri">18. Ses ve işitme riskleri</a></li>
+                <li><a href="#grup-guvenligi">19. Konvoy ve grup güvenliği</a></li>
+                <li><a href="#yasak-kullanim">20. Yasaklanan kullanımlar</a></li>
+                <li><a href="#reklam-satin-alma">21. Reklamlar ve satın almalar</a></li>
+                <li><a href="#garanti-reddi">22. Garanti ve uygunluk reddi</a></li>
+                <li><a href="#sorumluluk-siniri">23. Sorumluluğun sınırlandırılması</a></li>
+                <li><a href="#degisiklikler">24. Değişiklikler</a></li>
+                <li><a href="#uygulanacak-hukuk">25. Uygulanacak hukuk</a></li>
+                <li><a href="#iletisim">26. İletişim</a></li>
+            </ol>
+        </aside>
+
+        <article class="document">
+
+            <div class="part-divider" id="gizlilik-politikasi">
+                <small>Bölüm A</small>
+                <h2>Gizlilik Politikası ve KVKK Aydınlatma Metni</h2>
+                <p>
+                    Bu bölüm, EmCon’un kullanıcı ve cihaz verilerine erişme,
+                    bunları kullanma, paylaşma, saklama ve silme biçimini açıklar.
+                </p>
+            </div>
+
+            <section class="section" id="kapsam">
+                <span class="section-number">Madde 1</span>
+                <h2>Kapsam ve temel esaslar</h2>
+
+                <p>
+                    Bu Gizlilik Politikası; Android işletim sistemi üzerinde
+                    çalışan <strong>EmCon – Emergency Connection</strong>
+                    uygulamasını, uygulama içindeki sesli iletişim, Bas-Konuş,
+                    ses algılama, konvoy oluşturma, konvoya katılma, QR kod veya
+                    referans numarasıyla bağlantı kurma, yakın cihazları bulma,
+                    kısa komut gönderme, konum paylaşma, konvoy üyelerini harita
+                    üzerinde görüntüleme, reklam gösterme, destek ürünü satın alma
+                    ve reklamsız abonelik özelliklerini kapsar.
+                </p>
+
+                <p>
+                    EmCon’un kullanılması, bu politikanın okunduğu ve uygulamanın
+                    veri işleme yapısı hakkında bilgi edinildiği anlamına gelir.
+                    Ancak bu politika tek başına açık rıza metni değildir.
+                    Mevzuatın açık rıza gerektirdiği bir veri işleme faaliyeti
+                    bulunması hâlinde, kullanıcı tercihi ayrıca ve ilgili işlemden
+                    önce alınabilir.
+                </p>
+
+                <div class="callout info">
+                    <strong>Sürüm ve işlev farklılıkları</strong>
+                    <p>
+                        Cihaz modeli, Android sürümü, Google Play Hizmetleri
+                        sürümü, ülke, uygulama sürümü, mağaza dağıtım kanalı ve
+                        kullanıcı tercihleri nedeniyle bazı özellikler her
+                        cihazda bulunmayabilir veya farklı şekilde çalışabilir.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="veri-sorumlusu">
+                <span class="section-number">Madde 2</span>
+                <h2>Veri sorumlusu ve iletişim bilgileri</h2>
+
+                <p>
+                    EmCon’un geliştiricisi ve uygulama kapsamında doğrudan
+                    geliştirici tarafından gerçekleştirilen kişisel veri işleme
+                    faaliyetleri bakımından veri sorumlusu:
+                </p>
+
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <small>Veri sorumlusu / geliştirici</small>
+                        <strong>Ümit Faruk Yenici</strong>
+                    </div>
+
+                    <div class="contact-item">
+                        <small>Gizlilik iletişim adresi</small>
+                        <strong>
+                            <a href="mailto:umido.play@gmail.com">
+                                umido.play@gmail.com
+                            </a>
+                        </strong>
+                    </div>
+
+                    <div class="contact-item">
+                        <small>Uygulama adı</small>
+                        <strong>EmCon – Emergency Connection</strong>
+                    </div>
+
+                    <div class="contact-item">
+                        <small>Android paket adı</small>
+                        <strong>com.emcon.app</strong>
+                    </div>
+                </div>
+
+                <p class="muted" style="margin-top: 18px;">
+                    Google, Google Play, AdMob ve diğer bağımsız üçüncü taraflar
+                    tarafından kendi amaç ve yöntemleriyle gerçekleştirilen
+                    işlemler bakımından ilgili hizmet sağlayıcı, kendi gizlilik
+                    politikası çerçevesinde ayrıca veri sorumlusu veya veri
+                    işleyen sıfatına sahip olabilir.
+                </p>
+            </section>
+
+            <section class="section" id="isleme-modeli">
+                <span class="section-number">Madde 3</span>
+                <h2>Uygulamanın veri işleme modeli</h2>
+
+                <p>
+                    EmCon, esas olarak yakın mesafedeki Android cihazların
+                    birbirini bulması, bağlantı kurması ve veri alışverişi
+                    gerçekleştirmesi amacıyla tasarlanmıştır. Haberleşme;
+                    cihazların desteklediği bağlantı teknolojilerine göre
+                    Bluetooth, Bluetooth Low Energy, Wi-Fi ve Google Nearby
+                    Connections altyapısı üzerinden gerçekleştirilebilir.
+                </p>
+
+                <p>
+                    Uygulamanın mevcut sürümünde zorunlu bir kullanıcı hesabı
+                    veya geliştirici tarafından işletilen merkezi bir kullanıcı
+                    veritabanı bulunmaz. Ses, kısa komut ve konum verileri,
+                    uygulamanın temel çalışma modeli kapsamında konvoydaki
+                    cihazlar arasında doğrudan veya ağdaki diğer katılımcılar
+                    üzerinden iletilebilir.
+                </p>
+
+                <p>
+                    Bununla birlikte Google Play Hizmetleri, Google AdMob,
+                    Google Play Billing ve benzeri üçüncü taraf bileşenleri,
+                    kendi hizmetlerini sağlayabilmek için geliştiricinin
+                    doğrudan kontrolünde olmayan teknik veriler işleyebilir.
+                </p>
+
+                <div class="callout warning">
+                    <strong>Merkezi kayıt yapılmaması mutlak anonimlik anlamına gelmez</strong>
+                    <p>
+                        EmCon’un geliştirici sunucusunda konuşma veya konum
+                        geçmişi oluşturmaması; diğer konvoy üyelerinin ekran
+                        görüntüsü almasını, harici kayıt yapmasını, sesi başka
+                        bir cihazla kaydetmesini, iletilen konumu saklamasını
+                        veya üçüncü taraf SDK’ların teknik veri işlemesini
+                        engellemez.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="veri-kategorileri">
+                <span class="section-number">Madde 4</span>
+                <h2>İşlenen veya erişilen veri kategorileri</h2>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Veri veya erişim türü</th>
+                                <th>Kullanım biçimi</th>
+                                <th>Olası alıcı</th>
+                                <th>Saklama yaklaşımı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mikrofon ve ses verisi</td>
+                                <td>
+                                    Bas-Konuş, ses algılama, mikrofon seviye
+                                    ayarı ve gerçek zamanlı sesli iletişim
+                                </td>
+                                <td>Bağlı konvoy üyeleri</td>
+                                <td>
+                                    Geliştirici sunucusunda kalıcı kayıt
+                                    yapılmaz; cihaz belleğinde geçici tamponlama
+                                    gerçekleşebilir
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Takma ad</td>
+                                <td>
+                                    Kullanıcının konvoy içinde ayırt edilmesi
+                                </td>
+                                <td>Bağlı konvoy üyeleri</td>
+                                <td>
+                                    Cihazda uygulama tercihi olarak saklanabilir
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Konum ve koordinat bilgisi</td>
+                                <td>
+                                    Konum gönderme, harita bağlantısı oluşturma
+                                    ve konvoy üyelerini harita üzerinde gösterme
+                                </td>
+                                <td>Konvoy üyeleri ve harita bağlantısı açılırsa ilgili harita hizmeti</td>
+                                <td>
+                                    Geliştirici tarafından konum geçmişi
+                                    oluşturulmaz; alıcı cihazlarda geçici veya
+                                    kullanıcı eylemiyle daha uzun süre tutulabilir
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Yakındaki cihazlar, Bluetooth ve Wi-Fi erişimi</td>
+                                <td>
+                                    Cihaz bulma, bağlantı kurma, ses, komut ve
+                                    konum paketlerini iletme
+                                </td>
+                                <td>
+                                    Google Play Hizmetleri ve bağlantı kurulan cihazlar
+                                </td>
+                                <td>
+                                    Bağlantı süresi boyunca teknik olarak işlenebilir
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Kamera ve QR kod görüntüsü</td>
+                                <td>
+                                    Konvoy davet veya referans kodunu tarama
+                                </td>
+                                <td>
+                                    Cihaz içi veya Google Code Scanner bileşeni
+                                </td>
+                                <td>
+                                    EmCon tarafından fotoğraf veya video olarak
+                                    kalıcı biçimde saklanmaz
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Uygulama içi cihaz kimliği</td>
+                                <td>
+                                    Aynı bağlantı içindeki cihazları ayırt etme,
+                                    yönlendirme ve oturum yönetimi
+                                </td>
+                                <td>Konvoy bağlantısındaki cihazlar</td>
+                                <td>
+                                    Cihazda veya bağlantı süresince geçici olarak tutulabilir
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Konvoy kodu ve bağlantı bilgileri</td>
+                                <td>
+                                    Konvoy oluşturma, katılma, yönlendirme,
+                                    mikrofon yetkisi ve üyelik yönetimi
+                                </td>
+                                <td>Konvoy üyeleri</td>
+                                <td>
+                                    Bağlantı veya oturum süresince işlenebilir
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Bağlantı ve hata kayıtları</td>
+                                <td>
+                                    Bağlantının sürdürülmesi, hata teşhisi ve
+                                    performans iyileştirme
+                                </td>
+                                <td>
+                                    Cihaz, işletim sistemi ve ilgili Google hizmetleri
+                                </td>
+                                <td>
+                                    Kısa süreli uygulama loglarında veya sistem
+                                    günlüklerinde bulunabilir
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Bildirim ve arka plan hizmeti bilgileri</td>
+                                <td>
+                                    Uygulama arka plandayken haberleşmenin
+                                    sürdürülmesi ve aktif hizmet bildirimi
+                                </td>
+                                <td>Android işletim sistemi</td>
+                                <td>Cihaz ayarları ve sistem günlükleri kapsamında</td>
+                            </tr>
+
+                            <tr>
+                                <td>Reklam ve etkileşim verileri</td>
+                                <td>
+                                    Reklam gösterimi, ölçüm, sahtekârlık önleme
+                                    ve reklam tercihlerinin uygulanması
+                                </td>
+                                <td>Google AdMob ve reklam teknolojisi sağlayıcıları</td>
+                                <td>İlgili sağlayıcının politikalarına göre</td>
+                            </tr>
+
+                            <tr>
+                                <td>Satın alma ve abonelik durumu</td>
+                                <td>
+                                    Destek ürününün, aboneliğin veya reklamsız
+                                    kullanım hakkının doğrulanması
+                                </td>
+                                <td>Google Play Billing</td>
+                                <td>
+                                    Google Play kayıtları ile cihazdaki yerel
+                                    hak durumu kaydında tutulabilir
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Destek iletişimleri</td>
+                                <td>
+                                    Kullanıcının e-posta ile destek talebi
+                                    göndermesi hâlinde talebi cevaplama
+                                </td>
+                                <td>
+                                    Geliştirici ve e-posta hizmeti sağlayıcısı
+                                </td>
+                                <td>
+                                    Talebin niteliği ve hukuki gereklilikler
+                                    ölçüsünde saklanabilir
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>4.1. Mikrofon ve ses verisi</h3>
+
+                <p>
+                    EmCon, kullanıcının verdiği mikrofon iznine dayanarak
+                    Bas-Konuş, otomatik veya kullanıcı tarafından etkinleştirilen
+                    ses algılama ve ses seviyesi iyileştirme işlevlerini
+                    gerçekleştirebilir. Mikrofon verisi, konvoy üyeleri arasında
+                    gerçek zamanlı veya gerçeğe yakın zamanlı ses aktarımı için
+                    kullanılır.
+                </p>
+
+                <p>
+                    Ses paketleri, ağ ve cihaz koşulları nedeniyle kısa süreyle
+                    cihaz belleğinde tamponlanabilir. Bağlantı kaybı, paket kaybı,
+                    cihazın kapanması veya uygulamanın sonlandırılması hâlinde
+                    sesin tamamı karşı tarafa ulaşmayabilir.
+                </p>
+
+                <p>
+                    EmCon geliştiricisi, konuşmaları kendi merkezi sunucusunda
+                    kalıcı biçimde kaydetmeyi, arşivlemeyi veya sonradan dinlemeyi
+                    amaçlamaz. Bununla birlikte diğer katılımcıların bağımsız
+                    kayıt yapması geliştiricinin kontrolü dışındadır.
+                </p>
+
+                <h3>4.2. Takma ad</h3>
+
+                <p>
+                    Kullanıcı, uygulama içinde gerçek adını kullanmak zorunda
+                    olmaksızın bir takma ad belirleyebilir. Takma ad, konvoydaki
+                    diğer katılımcılara gösterilebilir ve cihaz üzerinde
+                    uygulama tercihi olarak saklanabilir.
+                </p>
+
+                <p>
+                    Kullanıcı; gerçek kişilerin kimliğine bürünmemeli, hukuka
+                    aykırı, yanıltıcı, hakaret içeren, tehdit edici veya üçüncü
+                    kişilerin marka, unvan ve kişilik haklarını ihlal eden takma
+                    adlar kullanmamalıdır.
+                </p>
+
+                <h3>4.3. Konum bilgisi ve konvoy haritası</h3>
+
+                <p>
+                    Kullanıcı konum gönderme veya konvoy üyelerini harita
+                    üzerinde görüntüleme özelliğini etkinleştirdiğinde, cihazın
+                    hassas veya yaklaşık konum bilgisi alınabilir. Konum verisi;
+                    koordinat gönderme, harita bağlantısı oluşturma ve aktif
+                    konvoy üyelerinin harita üzerindeki konumlarını güncelleme
+                    amacıyla kullanılabilir.
+                </p>
+
+                <p>
+                    Konvoy haritası etkin olduğu süre boyunca konum bilgisi,
+                    özellik tasarımına, Android izinlerine ve bağlantı durumuna
+                    göre olay bazlı veya belirli aralıklarla diğer konvoy
+                    üyelerine aktarılabilir. Kullanıcı özelliği kapattığında,
+                    konvoydan ayrıldığında, ilgili izni kaldırdığında veya
+                    işletim sistemi arka plan işlemini durdurduğunda konum
+                    güncellemeleri kesilebilir.
+                </p>
+
+                <p>
+                    EmCon geliştiricisi merkezi bir konum geçmişi oluşturmaz.
+                    Ancak gönderilmiş bir konumun diğer katılımcıların cihazında
+                    görüntülenmesi, ekran görüntüsünün alınması, bağlantının
+                    kaydedilmesi veya başka kişilere aktarılması teknik olarak
+                    engellenemeyebilir.
+                </p>
+
+                <h3>4.4. Yakındaki cihazlar, Bluetooth ve Wi-Fi</h3>
+
+                <p>
+                    EmCon; konvoy üyelerini bulmak ve doğrudan cihazlar arası
+                    bağlantı kurmak için Android’in yakındaki cihazlar,
+                    Bluetooth, Bluetooth Low Energy ve Wi-Fi özelliklerine
+                    erişebilir. Android sürümüne göre bu özelliklerin
+                    çalışabilmesi için konum veya yakındaki cihazlar izni
+                    gerekebilir.
+                </p>
+
+                <p>
+                    Bu bağlantı verileri geliştirici tarafından davranışsal
+                    reklam profili oluşturmak amacıyla kullanılmaz. Bununla
+                    birlikte Google Play Hizmetleri, bağlantı teknolojisini
+                    sağlayabilmek ve kötüye kullanımı önleyebilmek için kendi
+                    politikaları kapsamında teknik veriler işleyebilir.
+                </p>
+
+                <h3>4.5. Kamera ve QR kod</h3>
+
+                <p>
+                    Kamera erişimi yalnızca kullanıcının QR kod tarama işlevini
+                    başlatması hâlinde konvoy davet kodunu veya referans
+                    bilgisini okumak amacıyla kullanılır. EmCon, QR tarama
+                    sırasında görülen kamera görüntüsünü kendi sunucusuna
+                    göndermez ve fotoğraf arşivi oluşturmaz.
+                </p>
+
+                <h3>4.6. Reklam verileri</h3>
+
+                <p>
+                    Ücretsiz sürümde Google AdMob aracılığıyla banner, geçiş,
+                    açılış veya benzeri reklam türleri gösterilebilir. Reklam
+                    sağlayıcıları; reklam kimliği, IP adresinden türetilebilen
+                    yaklaşık konum, cihaz özellikleri, uygulama etkileşimleri,
+                    reklam görüntüleme ve tıklama bilgileri, teşhis verileri ve
+                    sahtekârlık önleme sinyalleri işleyebilir.
+                </p>
+
+                <p>
+                    Kullanıcının bulunduğu ülke ve geçerli düzenlemeler
+                    doğrultusunda kişiselleştirilmiş reklam, kişiselleştirilmemiş
+                    reklam veya sınırlı reklam gösterimi uygulanabilir. Gerekli
+                    hâllerde reklam tercihleri, Google’ın onaylı rıza yönetim
+                    arayüzü üzerinden alınabilir ve değiştirilebilir.
+                </p>
+
+                <h3>4.7. Satın alma, destek ürünü ve abonelik verileri</h3>
+
+                <p>
+                    Uygulama içindeki destek ürünleri ve reklamsız abonelik
+                    işlemleri Google Play Billing üzerinden yürütülür. EmCon
+                    geliştiricisi kullanıcının banka kartı, kredi kartı, hesap
+                    numarası veya tam ödeme bilgilerine doğrudan erişmez.
+                </p>
+
+                <p>
+                    Uygulama; satın alınan ürün kimliğini, işlemin tamamlanma
+                    durumunu, aboneliğin aktif olup olmadığını, satın alma
+                    işleminin onaylanıp onaylanmadığını ve reklamsız kullanım
+                    hakkının bulunup bulunmadığını kontrol edebilir.
+                </p>
+
+                <p>
+                    İnternet erişimi bulunmadığında, daha önce doğrulanmış
+                    reklamsız kullanım hakkı cihazdaki yerel bir kayıt üzerinden
+                    geçici olarak uygulanabilir. İnternet bağlantısı yeniden
+                    kurulduğunda abonelik durumu Google Play üzerinden tekrar
+                    doğrulanabilir.
+                </p>
+            </section>
+
+            <section class="section" id="isleme-amaclari">
+                <span class="section-number">Madde 5</span>
+                <h2>Kişisel verilerin işlenme amaçları</h2>
+
+                <p>EmCon kapsamında erişilen veriler aşağıdaki amaçlarla işlenebilir:</p>
+
+                <ul class="privacy-list">
+                    <li>Konvoy oluşturmak ve konvoya katılım sağlamak,</li>
+                    <li>Yakındaki uygun cihazları keşfetmek ve bağlantı kurmak,</li>
+                    <li>Konvoy üyeleri arasında gerçek zamanlı ses aktarımı yapmak,</li>
+                    <li>Mikrofon seviyesini ve ses iletim performansını iyileştirmek,</li>
+                    <li>Kısa komut, durum ve yönlendirme paketlerini iletmek,</li>
+                    <li>Kullanıcının seçimiyle konum göndermek,</li>
+                    <li>Konvoy üyelerini harita üzerinde görüntülemek,</li>
+                    <li>Mikrofon konuşma yetkisini, üyelik durumunu ve grup sırasını yönetmek,</li>
+                    <li>Mesh veya çoklu bağlantı yapısında paket yönlendirmesi yapmak,</li>
+                    <li>Bağlantı koptuğunda yeniden bağlantı kurulmasını desteklemek,</li>
+                    <li>Uygulamanın arka planda veya ekran kilitliyken çalışmasını sağlamak,</li>
+                    <li>Aktif hizmet ve bağlantı durumuna ilişkin bildirim göstermek,</li>
+                    <li>Teknik hataları teşhis etmek ve uygulama performansını iyileştirmek,</li>
+                    <li>Reklam göstermek ve reklam performansını ölçmek,</li>
+                    <li>Reklam sahtekârlığını ve kötüye kullanımı önlemek,</li>
+                    <li>Destek ürünü ve abonelik işlemlerini yürütmek,</li>
+                    <li>Reklamsız kullanım hakkını doğrulamak,</li>
+                    <li>Kullanıcı destek taleplerini cevaplamak,</li>
+                    <li>Yasal yükümlülükleri ve yetkili makam taleplerini yerine getirmek.</li>
+                </ul>
+            </section>
+
+            <section class="section" id="hukuki-sebepler">
+                <span class="section-number">Madde 6</span>
+                <h2>Veri toplama yöntemi ve hukuki sebepler</h2>
+
+                <p>
+                    Veriler; kullanıcının cihaz izinleri, uygulama içi işlemleri,
+                    konvoya katılımı, konum paylaşımı, QR kod taraması, Google
+                    Play üzerinden satın alma işlemi, reklam etkileşimi veya
+                    geliştiriciye gönderdiği destek e-postası aracılığıyla
+                    elektronik ortamda elde edilebilir.
+                </p>
+
+                <p>
+                    İşleme faaliyetinin niteliğine göre aşağıdaki hukuki
+                    sebeplerden biri veya birkaçı uygulanabilir:
+                </p>
+
+                <ul>
+                    <li>
+                        Uygulama hizmetinin kurulması veya ifasıyla doğrudan
+                        ilgili olması,
+                    </li>
+                    <li>
+                        Veri sorumlusunun hukuki yükümlülüğünü yerine getirmesi,
+                    </li>
+                    <li>
+                        Bir hakkın tesisi, kullanılması veya korunması için
+                        veri işlemenin zorunlu olması,
+                    </li>
+                    <li>
+                        İlgili kişinin temel hak ve özgürlüklerine zarar
+                        vermemek kaydıyla meşru menfaatler için veri işlemenin
+                        zorunlu olması,
+                    </li>
+                    <li>
+                        Mevzuatın gerekli gördüğü durumlarda kullanıcının
+                        ayrı ve bilgilendirilmiş açık rızası,
+                    </li>
+                    <li>
+                        Reklam ve yerel depolama teknolojileri bakımından
+                        kullanıcının ilgili rıza yönetim arayüzünde belirttiği
+                        tercih.
+                    </li>
+                </ul>
+
+                <div class="callout info">
+                    <strong>Android izni ile hukuki rıza aynı kavram değildir</strong>
+                    <p>
+                        Mikrofon, kamera, konum veya yakındaki cihaz izninin
+                        Android üzerinden verilmesi, cihaz özelliğine teknik
+                        erişimi sağlar. Gerekli olduğu durumlarda kişisel veri
+                        işleme rızası veya reklam tercihi ayrıca sunulabilir.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="paylasim">
+                <span class="section-number">Madde 7</span>
+                <h2>Verilerin paylaşılması ve yurt dışına aktarım</h2>
+
+                <h3>7.1. Konvoy üyeleriyle paylaşım</h3>
+
+                <p>
+                    EmCon’un temel haberleşme işlevinin yerine getirilebilmesi
+                    için aşağıdaki bilgiler konvoydaki diğer cihazlara
+                    aktarılabilir:
+                </p>
+
+                <ul>
+                    <li>Takma ad,</li>
+                    <li>Ses paketleri,</li>
+                    <li>Konum ve harita bilgileri,</li>
+                    <li>Kısa komutlar ve durum mesajları,</li>
+                    <li>Mikrofon veya konuşma yetkisi durumu,</li>
+                    <li>Konvoy üyeliği ve bağlantı durumu,</li>
+                    <li>Yönlendirme, sıra ve ağ topolojisi bilgileri,</li>
+                    <li>Uygulama içi geçici cihaz kimliği.</li>
+                </ul>
+
+                <p>
+                    Kullanıcı, konvoya katılmakla bu teknik aktarımın hizmetin
+                    doğal ve zorunlu bir unsuru olduğunu kabul eder. Kullanıcının
+                    başka kişilere ait ses, isim veya konum bilgisini paylaşması
+                    hâlinde gerekli bilgilendirme ve hukuki izinleri sağlama
+                    sorumluluğu kullanıcıya aittir.
+                </p>
+
+                <h3>7.2. Google ve diğer üçüncü taraflarla paylaşım</h3>
+
+                <p>
+                    Reklam, satın alma, QR tarama, uygulama dağıtımı, kötüye
+                    kullanım önleme ve yakın cihaz bağlantısı amacıyla teknik
+                    veriler Google hizmetleri tarafından işlenebilir.
+                </p>
+
+                <p>
+                    Google ve bağlantılı hizmet sağlayıcıların sunucuları
+                    Türkiye dışında bulunabilir. Bu nedenle reklam, satın alma,
+                    cihaz, tanılama veya hizmet kullanım verileri ilgili üçüncü
+                    tarafın altyapısı üzerinden yurt dışında işlenebilir.
+                    Bu işlemler ilgili hizmet sağlayıcının gizlilik politikası,
+                    sözleşmeleri ve uygulanabilir veri koruma mekanizmaları
+                    kapsamında gerçekleştirilir.
+                </p>
+
+                <h3>7.3. Yasal zorunluluklar</h3>
+
+                <p>
+                    Geliştiriciye ulaşmış ve geliştiricinin elinde bulunan
+                    veriler; kanun, kesinleşmiş mahkeme kararı veya yetkili kamu
+                    makamının hukuka uygun talebi gerektiriyorsa ilgili makama
+                    açıklanabilir. Geliştirici, kendisinde bulunmayan konuşma
+                    veya konum kayıtlarını sonradan üretmekle yükümlü değildir.
+                </p>
+
+                <h3>7.4. Veri satışı</h3>
+
+                <p>
+                    Geliştirici, kullanıcıların ses, takma ad veya konum
+                    verilerini kendi adına oluşturduğu bir kullanıcı veri
+                    tabanında ticari amaçla satmaz. Üçüncü taraf reklam
+                    sağlayıcılarının veri kullanım ve reklam teknolojisi
+                    uygulamaları ise kendi politikalarına tabidir.
+                </p>
+            </section>
+
+            <section class="section" id="saklama">
+                <span class="section-number">Madde 8</span>
+                <h2>Verilerin saklanması, silinmesi ve uygulamanın kaldırılması</h2>
+
+                <h3>8.1. Geliştirici sunucusunda saklanmayan veriler</h3>
+
+                <p>
+                    EmCon geliştiricisi, mevcut uygulama mimarisi kapsamında
+                    aşağıdaki veriler için merkezi ve kalıcı bir kullanıcı
+                    arşivi oluşturmaz:
+                </p>
+
+                <ul>
+                    <li>Gerçek zamanlı ses konuşmaları,</li>
+                    <li>Konvoy içi ses kayıtları,</li>
+                    <li>Konum geçmişi,</li>
+                    <li>Konvoy hareket geçmişi,</li>
+                    <li>QR kamera görüntüleri,</li>
+                    <li>Konvoy üyelerinin sürekli hareket kayıtları.</li>
+                </ul>
+
+                <h3>8.2. Cihaz üzerinde saklanabilecek bilgiler</h3>
+
+                <ul>
+                    <li>Takma ad,</li>
+                    <li>Mikrofon, ses seviyesi ve echo tercihleri,</li>
+                    <li>Hoparlör veya ses çıkışı tercihleri,</li>
+                    <li>Reklamsız kullanım durumunun yerel kaydı,</li>
+                    <li>Uygulama ayarları,</li>
+                    <li>Geçici konvoy veya bağlantı bilgileri,</li>
+                    <li>Kısa süreli teknik loglar ve hata kayıtları.</li>
+                </ul>
+
+                <p>
+                    Bu bilgiler, cihazın Android ayarlarından uygulama
+                    verilerinin temizlenmesi veya uygulamanın kaldırılmasıyla
+                    silinebilir. İşletim sistemi yedekleme özelliği etkinse,
+                    bazı uygulama tercihleri kullanıcının Google hesabına bağlı
+                    cihaz yedeğinde belirli bir süre daha bulunabilir.
+                </p>
+
+                <h3>8.3. Üçüncü taraf kayıtları</h3>
+
+                <p>
+                    Reklam gösterimleri, Google Play satın alma kayıtları,
+                    abonelik geçmişi, ödeme belgeleri ve Google hizmetlerine
+                    ilişkin teknik kayıtlar, ilgili hizmet sağlayıcının kendi
+                    saklama sürelerine tabidir. Uygulamanın kaldırılması bu
+                    kayıtları otomatik olarak silmeyebilir.
+                </p>
+
+                <h3>8.4. Destek e-postaları</h3>
+
+                <p>
+                    Kullanıcının geliştiriciye destek veya şikâyet e-postası
+                    göndermesi hâlinde, mesaj ve ekleri talebin cevaplandırılması,
+                    uyuşmazlıkların çözülmesi, kötüye kullanımın önlenmesi veya
+                    hukuki yükümlülüklerin yerine getirilmesi için gerekli süre
+                    boyunca saklanabilir.
+                </p>
+            </section>
+
+            <section class="section" id="guvenlik">
+                <span class="section-number">Madde 9</span>
+                <h2>Veri güvenliği ve güvenlik sınırlamaları</h2>
+
+                <p>
+                    EmCon; Android izin sistemini, uygulama izolasyonunu, Google
+                    Play Hizmetleri bağlantı mekanizmalarını ve işletim
+                    sisteminin sunduğu güvenlik kontrollerini kullanır. Ancak
+                    hiçbir kablosuz iletişim, yazılım veya mobil cihaz için
+                    mutlak güvenlik garanti edilemez.
+                </p>
+
+                <p>Başlıca güvenlik riskleri şunlardır:</p>
+
+                <ul class="risk-list">
+                    <li>Konvoy kodunun veya QR davetinin yetkisiz kişilerce elde edilmesi,</li>
+                    <li>Kullanıcının yanlış kişiyi konvoya kabul etmesi,</li>
+                    <li>Kimliğini farklı gösteren veya yanıltıcı takma ad kullanan katılımcılar,</li>
+                    <li>Ele geçirilmiş, root edilmiş veya zararlı yazılım bulunan cihazlar,</li>
+                    <li>Başka uygulamaların ekran veya ses kaydı yapması,</li>
+                    <li>Bluetooth veya Wi-Fi trafiğine yönelik müdahale girişimleri,</li>
+                    <li>İşletim sistemi veya Google Play Hizmetleri güvenlik açıkları,</li>
+                    <li>Cihazın fiziksel olarak üçüncü kişilerin eline geçmesi,</li>
+                    <li>Eski Android sürümü veya güncellenmemiş uygulama kullanılması,</li>
+                    <li>Kullanıcının ekran görüntüsü, ses kaydı veya konum paylaşımı yapması.</li>
+                </ul>
+
+                <div class="callout danger">
+                    <strong>Gizli veya mutlak güvenli haberleşme garantisi verilmez</strong>
+                    <p>
+                        EmCon; devlet sırrı, askerî gizlilik dereceli bilgi,
+                        ticari sır, kişisel sağlık verisi, adli bilgi, finansal
+                        parola, kimlik doğrulama kodu veya açıklanması ciddi
+                        zarara yol açabilecek içeriklerin aktarımı için
+                        sertifikalandırılmış bir güvenli haberleşme sistemi
+                        değildir.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="izinler">
+                <span class="section-number">Madde 10</span>
+                <h2>Kullanıcı tercihleri ve Android izinleri</h2>
+
+                <p>
+                    Kullanıcı, Android cihaz ayarları üzerinden aşağıdaki
+                    izinleri yönetebilir:
+                </p>
+
+                <ul>
+                    <li>Mikrofon,</li>
+                    <li>Konum,</li>
+                    <li>Yakındaki cihazlar,</li>
+                    <li>Bluetooth,</li>
+                    <li>Wi-Fi ve ağ erişimi,</li>
+                    <li>Kamera,</li>
+                    <li>Bildirimler,</li>
+                    <li>Arka planda çalışma ve batarya optimizasyonu tercihleri.</li>
+                </ul>
+
+                <p>
+                    İzinlerin kaldırılması veya Android’in uygulamayı arka
+                    planda sınırlandırması hâlinde konvoya bağlanma, ses iletme,
+                    QR tarama, konum gönderme, haritada güncel konum gösterme,
+                    bildirim alma veya bağlantıyı sürdürme işlevleri tamamen ya
+                    da kısmen çalışmayabilir.
+                </p>
+
+                <p>
+                    Kullanıcı, izin verdiği cihaz işlevlerinin kullanımından ve
+                    izinleri kendi güvenlik, gizlilik ve kullanım ihtiyacına
+                    göre yönetmekten sorumludur.
+                </p>
+            </section>
+
+            <section class="section" id="cocuklar">
+                <span class="section-number">Madde 11</span>
+                <h2>Çocukların gizliliği ve yaş sınırlaması</h2>
+
+                <p>
+                    EmCon çocuklara yönelik tasarlanmış bir uygulama değildir.
+                    Uygulama, grup haberleşmesi, konvoy koordinasyonu ve yakın
+                    cihazlar arasında iletişim senaryoları için geliştirilmiştir.
+                </p>
+
+                <p>
+                    Uygulama bilerek çocuklardan merkezi bir kullanıcı hesabı
+                    veya profil verisi toplamayı amaçlamaz. Bulunduğu ülkenin
+                    mevzuatına göre tek başına dijital hizmet kullanma yaşının
+                    altında olan kişiler, uygulamayı ancak ebeveyn veya yasal
+                    temsilci gözetimi ve izniyle kullanmalıdır.
+                </p>
+
+                <p>
+                    Ebeveyn veya yasal temsilci, çocuğun konumunun ya da sesinin
+                    diğer katılımcılarla paylaşılmasının doğuracağı riskleri
+                    değerlendirmek ve gerekli gözetimi sağlamakla sorumludur.
+                </p>
+            </section>
+
+            <section class="section" id="ucuncu-taraflar">
+                <span class="section-number">Madde 12</span>
+                <h2>Üçüncü taraf hizmetleri</h2>
+
+                <p>
+                    EmCon aşağıdaki üçüncü taraf hizmetlerinden yararlanabilir:
+                </p>
+
+                <div class="service-grid">
+                    <div class="service-card">
+                        <strong>Google Play Services</strong>
+                        <span>
+                            Android hizmetleri, uygulama altyapısı, güvenlik ve
+                            bağlantı bileşenleri.
+                        </span>
+                    </div>
+
+                    <div class="service-card">
+                        <strong>Google Nearby Connections</strong>
+                        <span>
+                            Yakındaki cihazların keşfedilmesi, bağlanması ve veri
+                            alışverişi.
+                        </span>
+                    </div>
+
+                    <div class="service-card">
+                        <strong>Google AdMob</strong>
+                        <span>
+                            Reklam gösterimi, reklam ölçümü, tercih yönetimi ve
+                            sahtekârlık önleme.
+                        </span>
+                    </div>
+
+                    <div class="service-card">
+                        <strong>Google Play Billing</strong>
+                        <span>
+                            Destek ürünleri, abonelikler ve reklamsız kullanım
+                            hakkının yönetimi.
+                        </span>
+                    </div>
+
+                    <div class="service-card">
+                        <strong>Google Code Scanner</strong>
+                        <span>
+                            QR veya barkod bilgilerinin okunması.
+                        </span>
+                    </div>
+
+                    <div class="service-card">
+                        <strong>Google Maps bağlantıları</strong>
+                        <span>
+                            Kullanıcının gönderilen koordinatı harita üzerinde
+                            açması.
+                        </span>
+                    </div>
+                </div>
+
+                <p>
+                    Üçüncü taraf hizmetlerin veri işleme uygulamaları ilgili
+                    sağlayıcının kendi koşullarına ve gizlilik politikasına
+                    tabidir:
+                </p>
+
+                <ul>
+                    <li>
+                        <a
+                            href="https://policies.google.com/privacy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Google Gizlilik Politikası
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://policies.google.com/terms"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Google Hizmet Şartları
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://developers.google.com/nearby/connections/overview"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Google Nearby Connections
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://support.google.com/admob/answer/6128543"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Google AdMob ve kullanıcı gizliliği
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Google Payments Gizlilik Bildirimi
+                        </a>
+                    </li>
+                </ul>
+
+                <p>
+                    Üçüncü taraf hizmetlerin kesintiye uğraması, koşullarını
+                    değiştirmesi, belirli ülkelerde kullanılamaması veya cihaz
+                    uyumluluğunu sonlandırması EmCon işlevlerinin kısmen veya
+                    tamamen çalışmamasına neden olabilir.
+                </p>
+            </section>
+
+            <section class="section" id="kullanici-haklari">
+                <span class="section-number">Madde 13</span>
+                <h2>Kullanıcı hakları, veri silme ve başvuru yöntemi</h2>
+
+                <p>
+                    Kullanıcılar, uygulanabilir veri koruma mevzuatı kapsamında
+                    kendileriyle ilgili kişisel verilerin:
+                </p>
+
+                <ul>
+                    <li>İşlenip işlenmediğini öğrenme,</li>
+                    <li>İşlenmişse bilgi talep etme,</li>
+                    <li>İşlenme amacını ve amaca uygun kullanılıp kullanılmadığını öğrenme,</li>
+                    <li>Aktarıldığı üçüncü kişiler hakkında bilgi talep etme,</li>
+                    <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme,</li>
+                    <li>Şartları oluşmuşsa silinmesini veya yok edilmesini isteme,</li>
+                    <li>Kanuni şartlar kapsamında işleme faaliyetine itiraz etme,</li>
+                    <li>Kanuna aykırı işleme nedeniyle zararın giderilmesini talep etme</li>
+                </ul>
+
+                <p>
+                    haklarına sahip olabilir.
+                </p>
+
+                <h3>13.1. Cihazdaki uygulama verilerinin silinmesi</h3>
+
+                <p>
+                    EmCon’da zorunlu kullanıcı hesabı bulunmadığından hesap
+                    silme işlemi yoktur. Cihazdaki yerel uygulama verileri:
+                </p>
+
+                <ol>
+                    <li>Android Ayarlar ekranını açarak,</li>
+                    <li>Uygulamalar bölümünden EmCon’u seçerek,</li>
+                    <li>Depolama veya uygulama verileri bölümünden verileri temizleyerek</li>
+                </ol>
+
+                <p>
+                    ya da uygulamayı kaldırarak silinebilir.
+                </p>
+
+                <h3>13.2. Aboneliklerin yönetilmesi</h3>
+
+                <p>
+                    Abonelikler uygulamanın kaldırılmasıyla otomatik olarak sona
+                    ermez. Kullanıcı, aboneliğini Google Play hesabındaki
+                    abonelik yönetimi ekranından iptal etmelidir.
+                </p>
+
+                <h3>13.3. Geliştiriciye başvuru</h3>
+
+                <p>
+                    Geliştiricinin elinde bulunabilecek destek yazışmaları veya
+                    diğer verilerle ilgili talepler, kimliğin ve talebin
+                    doğrulanmasına elverişli bilgilerle birlikte aşağıdaki
+                    adrese gönderilebilir:
+                </p>
+
+                <p>
+                    <a href="mailto:umido.play@gmail.com">
+                        umido.play@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    Başvurular yürürlükteki mevzuatta öngörülen yöntem ve süreler
+                    çerçevesinde değerlendirilir. Geliştirici, merkezi olarak
+                    saklamadığı konvoy konuşması veya konum geçmişini silme,
+                    teslim etme ya da yeniden oluşturma imkânına sahip değildir.
+                </p>
+            </section>
+
+            <div class="part-divider" id="kullanim-kosullari">
+                <small>Bölüm B</small>
+                <h2>Kullanım Koşulları ve Ayrıntılı Risk Bildirimi</h2>
+                <p>
+                    Bu bölüm, EmCon’un güvenli ve hukuka uygun kullanımına ilişkin
+                    kuralları ve kullanıcının üstlendiği operasyonel riskleri açıklar.
+                </p>
+            </div>
+
+            <section class="section" id="kullanici-sorumluluklari">
+                <span class="section-number">Madde 14</span>
+                <h2>Kullanıcının temel sorumlulukları</h2>
+
+                <p>
+                    Kullanıcı, EmCon’u kendi seçimi ve değerlendirmesiyle
+                    kullandığını; uygulamanın mobil cihaz, kablosuz haberleşme ve
+                    diğer kullanıcıların davranışlarına bağlı olduğunu bilir.
+                </p>
+
+                <p>Kullanıcı özellikle aşağıdaki hususlardan sorumludur:</p>
+
+                <ul class="responsibility-list">
+                    <li>
+                        Uygulamayı yalnızca hukuka uygun amaçlarla kullanmak,
+                    </li>
+                    <li>
+                        Kullandığı cihazın güvenliğini, güncelliğini, batarya
+                        seviyesini ve fiziksel sağlamlığını kontrol etmek,
+                    </li>
+                    <li>
+                        Mikrofon, Bluetooth, Wi-Fi, kamera, konum ve bildirim
+                        izinlerini bilinçli şekilde yönetmek,
+                    </li>
+                    <li>
+                        Konvoy kodunu ve QR davetini yetkisiz kişilerle
+                        paylaşmamak,
+                    </li>
+                    <li>
+                        Konvoya katılan kişilerin kimliğini ve yetkisini kendi
+                        imkânlarıyla doğrulamak,
+                    </li>
+                    <li>
+                        Sesli talimatların doğru kişiden geldiğini ve güncel
+                        olduğunu bağımsız biçimde teyit etmek,
+                    </li>
+                    <li>
+                        Haritada görülen konumu kesin ve hatasız kabul etmemek,
+                    </li>
+                    <li>
+                        Başkalarının sesini, konumunu veya kimliğini paylaşmadan
+                        önce gerekli bilgilendirme ve izinleri almak,
+                    </li>
+                    <li>
+                        Ses veya ekran kaydı yapılacaksa uygulanabilir mevzuata
+                        ve katılımcıların haklarına uymak,
+                    </li>
+                    <li>
+                        Uygulamayı kullanırken trafik, iş güvenliği, saha
+                        güvenliği ve kamu düzeni kurallarına uymak,
+                    </li>
+                    <li>
+                        Uygulamayı kullanmanın belirli faaliyetlerde yasak veya
+                        kısıtlı olup olmadığını kontrol etmek,
+                    </li>
+                    <li>
+                        Acil durumlar için resmî ve alternatif haberleşme
+                        yöntemlerini hazır bulundurmak,
+                    </li>
+                    <li>
+                        Kendi cihazında gerçekleşen veri, batarya ve bağlantı
+                        tüketimini takip etmek,
+                    </li>
+                    <li>
+                        Uygulama ve üçüncü taraf hizmet koşullarındaki
+                        değişiklikleri takip etmek.
+                    </li>
+                </ul>
+
+                <div class="callout warning">
+                    <strong>Kullanıcı kararı esastır</strong>
+                    <p>
+                        Kullanıcının EmCon üzerinden aldığı bir sesli talimata,
+                        harita konumuna, kısa komuta veya başka bir katılımcının
+                        beyanına dayanarak hareket etmesi kendi karar ve
+                        sorumluluğundadır. Kritik kararlar mümkün olduğu ölçüde
+                        bağımsız kaynaklarla doğrulanmalıdır.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="operasyonel-riskler">
+                <span class="section-number">Madde 15</span>
+                <h2>Teknik ve operasyonel riskler</h2>
+
+                <p>
+                    Kullanıcı, aşağıdaki durumların uygulamanın olağan teknik
+                    sınırları içinde meydana gelebileceğini kabul eder:
+                </p>
+
+                <ul class="risk-list">
+                    <li>Bağlantının hiç kurulamaması veya geç kurulması,</li>
+                    <li>Konvoy üyelerinin birbirini görememesi,</li>
+                    <li>Üyelerin yanlış gruba veya konvoya bağlanması,</li>
+                    <li>Bağlantının hareket sırasında aniden kesilmesi,</li>
+                    <li>Konvoyun birden fazla iletişim kümesine ayrılması,</li>
+                    <li>Gruplar birleştiğinde geçici bağlantı veya yönlendirme sorunları yaşanması,</li>
+                    <li>Ses paketlerinin kaybolması, gecikmesi veya sırasının değişmesi,</li>
+                    <li>Bir sesli mesajın eksik, bozuk, kesik veya anlaşılmaz ulaşması,</li>
+                    <li>Sesin hiç iletilmemesi veya yanlış çıkış cihazından verilmesi,</li>
+                    <li>Echo, geri besleme, uğultu, parazit veya ani ses seviyesi değişikliği,</li>
+                    <li>Bluetooth kulaklık, interkom veya araç sistemi uyumsuzluğu,</li>
+                    <li>Mikrofonun başka uygulama veya işletim sistemi tarafından kullanılması,</li>
+                    <li>Android’in arka plan hizmetini durdurması,</li>
+                    <li>Batarya optimizasyonunun iletişimi sınırlaması,</li>
+                    <li>Telefon üreticisinin özel güç yönetimi nedeniyle uygulamanın kapanması,</li>
+                    <li>Google Play Hizmetleri’nin bulunmaması, güncel olmaması veya hata vermesi,</li>
+                    <li>Wi-Fi, Bluetooth veya konum özelliklerinin kapalı olması,</li>
+                    <li>Yoğun elektromanyetik ortam, arazi, bina veya araç gövdesi nedeniyle sinyal zayıflaması,</li>
+                    <li>Cihazın aşırı ısınması, kapanması veya bataryasının tükenmesi,</li>
+                    <li>Mobil işletim sistemi güncellemesi sonrası geçici uyumsuzluk,</li>
+                    <li>Reklam veya satın alma hizmetinin geçici olarak kullanılamaması,</li>
+                    <li>Harita uygulamasının açılmaması veya hatalı rota göstermesi,</li>
+                    <li>Kötü niyetli kullanıcının yanıltıcı bilgi, komut veya konum göndermesi.</li>
+                </ul>
+
+                <p>
+                    Kullanıcı, uygulamayı göreve, sefere, yolculuğa veya saha
+                    çalışmasına başlamadan önce kendi cihaz ve ekipmanlarıyla
+                    test etmekten sorumludur.
+                </p>
+            </section>
+
+            <section class="section" id="surus-guvenligi">
+                <span class="section-number">Madde 16</span>
+                <h2>Sürüş, motosiklet ve saha güvenliği</h2>
+
+                <div class="callout danger">
+                    <strong>Araç kullanırken uygulamayla fiziksel etkileşim kurmayın</strong>
+                    <p>
+                        Kullanıcı, sürüş sırasında telefonu eline almamalı,
+                        ekrana bakmamalı, QR kod taramamalı, konvoy ayarı
+                        değiştirmemeli, reklamla etkileşime girmemeli veya
+                        dikkatini trafikten ayıracak başka bir işlem yapmamalıdır.
+                    </p>
+                </div>
+
+                <p>
+                    Konvoy oluşturma, davet paylaşma, kullanıcı kabul etme,
+                    harita ayarlama, mikrofon seçme veya bağlantı sorunlarını
+                    giderme işlemleri araç güvenli biçimde durdurulduktan sonra
+                    yapılmalıdır.
+                </p>
+
+                <p>
+                    Sürücü; kulaklık, interkom, hoparlör ve sesli iletişim
+                    kullanımının bulunduğu ülkedeki trafik mevzuatına uygun olup
+                    olmadığını kontrol etmekle sorumludur.
+                </p>
+
+                <p>
+                    Sesli iletişim; sürücünün siren, korna, motor sesi, yaklaşan
+                    araç, mekanik arıza veya çevresel tehlike seslerini
+                    duymasını engelleyecek seviyede kullanılmamalıdır.
+                </p>
+
+                <p>
+                    EmCon’un kullanılması, sürücünün görüş, işitme, dikkat,
+                    hız, takip mesafesi, koruyucu ekipman, yol ve hava koşulları
+                    bakımından sahip olduğu yükümlülükleri ortadan kaldırmaz.
+                </p>
+            </section>
+
+            <section class="section" id="konum-riskleri">
+                <span class="section-number">Madde 17</span>
+                <h2>Konum ve harita özelliklerine ilişkin riskler</h2>
+
+                <p>
+                    GPS, Wi-Fi, Bluetooth, baz istasyonu ve cihaz sensörlerinden
+                    elde edilen konum bilgisi her zaman kesin veya güncel
+                    olmayabilir.
+                </p>
+
+                <p>Haritada gösterilen konum:</p>
+
+                <ul class="risk-list">
+                    <li>Gerçek konumdan metrelerce veya daha fazla sapabilir,</li>
+                    <li>Tünel, kapalı alan, dağlık arazi veya yoğun yapılaşmada güncellenmeyebilir,</li>
+                    <li>Bağlantı kesildiğinde eski konumu göstermeye devam edebilir,</li>
+                    <li>Başka bir katılımcının cihaz ayarları nedeniyle yanlış olabilir,</li>
+                    <li>Cihazın saat veya sensör hatalarından etkilenebilir,</li>
+                    <li>Kasıtlı olarak yanlış veya yanıltıcı şekilde paylaşılabilir.</li>
+                </ul>
+
+                <p>
+                    Kullanıcı, harita üzerinde görülen bir konumu kesin kurtarma,
+                    takip, güvenlik, mesafe, hız veya rota bilgisi olarak kabul
+                    etmemelidir. Hayati veya güvenlik açısından kritik konum
+                    belirleme işlemlerinde profesyonel ve resmî sistemler
+                    kullanılmalıdır.
+                </p>
+
+                <p>
+                    Kullanıcı, kendi konumunu paylaşmanın ev, iş yeri, hareket
+                    güzergâhı, toplantı noktası veya başka hassas alanları
+                    açıklayabileceğini dikkate almalıdır.
+                </p>
+            </section>
+
+            <section class="section" id="ses-riskleri">
+                <span class="section-number">Madde 18</span>
+                <h2>Ses, mikrofon ve işitme riskleri</h2>
+
+                <p>
+                    EmCon’un ses seviyesi iyileştirme, hoparlör yönlendirme veya
+                    mikrofon performansını artırma özellikleri cihaz, kulaklık ve
+                    interkom modeline göre farklı sonuç verebilir.
+                </p>
+
+                <p>
+                    Yüksek ses seviyesi, ani ses çıkışı, geri besleme veya
+                    parazit; rahatsızlık, irkilme, dikkat kaybı veya işitme
+                    sağlığı açısından risk oluşturabilir. Kullanıcı:
+                </p>
+
+                <ul class="responsibility-list">
+                    <li>İlk kullanımda ses seviyesini düşük tutmalı,</li>
+                    <li>Kulaklık ve interkomu güvenli ortamda test etmeli,</li>
+                    <li>Echo veya geri besleme oluşursa sesi azaltmalı veya bağlantıyı sonlandırmalı,</li>
+                    <li>İşitme rahatsızlığı oluşursa kullanımı derhâl bırakmalı,</li>
+                    <li>Cihaz üreticisinin güvenli ses seviyesi talimatlarına uymalıdır.</li>
+                </ul>
+
+                <p>
+                    Geliştirici, kullanıcının yüksek ses seviyesi seçmesi,
+                    uyumsuz ekipman kullanması veya cihazın beklenmeyen ses
+                    üretmesi nedeniyle oluşabilecek zararları kontrol edemez.
+                </p>
+            </section>
+
+            <section class="section" id="grup-guvenligi">
+                <span class="section-number">Madde 19</span>
+                <h2>Konvoy, QR kod ve grup güvenliği</h2>
+
+                <p>
+                    Konvoy kodu veya QR daveti, gruba erişim sağlayabilecek bir
+                    bağlantı anahtarı niteliğindedir. Kullanıcı:
+                </p>
+
+                <ul class="responsibility-list">
+                    <li>QR kodu yalnızca katılması gereken kişilerle paylaşmalı,</li>
+                    <li>Kodu açık sosyal medya paylaşımlarında yayımlamamalı,</li>
+                    <li>Tanımadığı kullanıcıların takma adına güvenmemeli,</li>
+                    <li>Şüpheli katılımcıları gruptan çıkarmalı,</li>
+                    <li>Gruptan çıkarılan kişinin farklı cihaz veya kimlikle tekrar katılabileceğini hesaba katmalı,</li>
+                    <li>Kritik talimatları tek bir sesli mesaja dayanarak uygulamamalı,</li>
+                    <li>Gizli veya hassas bilgileri grup içinde paylaşmamalıdır.</li>
+                </ul>
+
+                <p>
+                    Konvoy kurucusu veya konuşma yetkisi yöneticisi olmak,
+                    katılımcıların gerçek kimliğinin geliştirici tarafından
+                    doğrulandığı anlamına gelmez.
+                </p>
+            </section>
+
+            <section class="section" id="yasak-kullanim">
+                <span class="section-number">Madde 20</span>
+                <h2>Yasaklanan veya uygunsuz kullanımlar</h2>
+
+                <p>EmCon aşağıdaki amaçlarla kullanılamaz:</p>
+
+                <ul class="risk-list">
+                    <li>Suç işlemek, suça yardım etmek veya suç delillerini gizlemek,</li>
+                    <li>Başkalarını tehdit etmek, taciz etmek veya takip etmek,</li>
+                    <li>İzinsiz konum takibi veya gizli dinleme yapmak,</li>
+                    <li>Hukuka aykırı ses kaydı veya kişisel veri toplamak,</li>
+                    <li>Yanlış acil durum, sahte ihbar veya yanıltıcı komut göndermek,</li>
+                    <li>Trafik güvenliğini tehlikeye düşürmek,</li>
+                    <li>Yetkisiz biçimde kolluk, askerî birim, acil hizmet veya resmî makam görünümü vermek,</li>
+                    <li>Devlet sırrı, gizlilik dereceli bilgi veya izinsiz ticari sır aktarmak,</li>
+                    <li>Uygulamanın güvenliğini test etme bahanesiyle diğer kullanıcıların cihazlarına müdahale etmek,</li>
+                    <li>Bağlantı altyapısını bozmak, aşırı paket göndermek veya hizmeti engellemek,</li>
+                    <li>Uygulamanın reklam, abonelik veya satın alma sistemini hileli biçimde aşmak,</li>
+                    <li>Uygulamayı tersine mühendislik veya zararlı yazılım dağıtımı amacıyla kullanmak,</li>
+                    <li>Üçüncü kişilerin fikrî mülkiyet, kişilik veya gizlilik haklarını ihlal etmek.</li>
+                </ul>
+
+                <p>
+                    Geliştirici; kötüye kullanım şüphesi, mağaza politikası
+                    ihlali, güvenlik riski veya yasal zorunluluk hâlinde
+                    uygulamanın belirli özelliklerini değiştirebilir,
+                    sınırlandırabilir veya desteklemeyi sonlandırabilir.
+                </p>
+            </section>
+
+            <section class="section" id="reklam-satin-alma">
+                <span class="section-number">Madde 21</span>
+                <h2>Reklamlar, destek ürünleri ve abonelikler</h2>
+
+                <h3>21.1. Reklamlar</h3>
+
+                <p>
+                    Ücretsiz kullanım sırasında üçüncü taraf reklamları
+                    gösterilebilir. Reklamın içeriği, doğruluğu, güvenliği,
+                    ürünü, hizmeti, fiyatı veya reklam verenin davranışları
+                    ilgili reklam verenin sorumluluğundadır.
+                </p>
+
+                <p>
+                    Kullanıcı, reklam bağlantısına tıklamadan, kişisel bilgi
+                    vermeden veya satın alma yapmadan önce ilgili üçüncü tarafı
+                    ve teklif koşullarını kendisi değerlendirmelidir.
+                </p>
+
+                <h3>21.2. Destek ürünleri</h3>
+
+                <p>
+                    Uygulama içindeki “destek” veya “bağış” olarak adlandırılan
+                    tek seferlik ürünler, uygulamanın geliştirilmesine gönüllü
+                    maddi katkı niteliğindedir. Açıkça aksi belirtilmedikçe bu
+                    ödemeler hayır kurumu bağışı, vergi indirimi sağlayan bağış,
+                    yatırım, ortaklık veya belirli bir özellik geliştirme
+                    taahhüdü değildir.
+                </p>
+
+                <h3>21.3. Reklamsız abonelik</h3>
+
+                <p>
+                    Reklamsız abonelik, aktif olduğu dönemde uygulama tarafından
+                    kontrol edilen reklamların gösterilmemesini amaçlar. İşletim
+                    sistemi, mağaza veya harici bağlantı sayfalarında gösterilen
+                    içerikler bu kapsamın dışında olabilir.
+                </p>
+
+                <p>
+                    Abonelikler Google Play hesabı üzerinden otomatik
+                    yenilenebilir. Kullanıcı, fiyatı, yenileme dönemini, vergi
+                    ve ödeme koşullarını satın alma ekranında kontrol etmekten
+                    ve istemediği aboneliği Google Play üzerinden zamanında
+                    iptal etmekten sorumludur.
+                </p>
+
+                <h3>21.4. İade ve ödeme uyuşmazlıkları</h3>
+
+                <p>
+                    Satın alma, ödeme, iptal ve iade işlemleri Google Play
+                    politikaları ile uygulanabilir tüketici mevzuatına tabidir.
+                    Uygulamanın kaldırılması aboneliği otomatik olarak iptal
+                    etmez.
+                </p>
+            </section>
+
+            <section class="section" id="garanti-reddi">
+                <span class="section-number">Madde 22</span>
+                <h2>Garanti, kesintisizlik ve belirli amaca uygunluk reddi</h2>
+
+                <p>
+                    EmCon, yürürlükteki emredici mevzuatın izin verdiği en geniş
+                    ölçüde <span class="legal-emphasis">“mevcut olduğu şekliyle”</span>
+                    ve <span class="legal-emphasis">“kullanılabildiği ölçüde”</span>
+                    sunulur.
+                </p>
+
+                <p>
+                    Geliştirici aşağıdaki hususlarda açık veya zımni bir garanti vermez:
+                </p>
+
+                <ul class="risk-list">
+                    <li>Uygulamanın kesintisiz veya hatasız çalışacağı,</li>
+                    <li>Her cihaz, kulaklık, interkom veya araç sistemiyle uyumlu olacağı,</li>
+                    <li>Her mesafede veya çevresel koşulda bağlantı kurulacağı,</li>
+                    <li>Sesin eksiksiz, gecikmesiz veya anlaşılır ulaşacağı,</li>
+                    <li>Konum bilgisinin kesin, güncel veya hatasız olacağı,</li>
+                    <li>Mesh bağlantının her zaman bütünlüğünü koruyacağı,</li>
+                    <li>Yetkisiz kişilerin gruba hiçbir zaman katılamayacağı,</li>
+                    <li>Üçüncü taraf hizmetlerin sürekli erişilebilir olacağı,</li>
+                    <li>Uygulamanın belirli bir görev, iş, seyahat veya acil durum için yeterli olacağı,</li>
+                    <li>Uygulamanın kullanımıyla belirli bir sonuç elde edileceği.</li>
+                </ul>
+
+                <p>
+                    Uygulama, resmî telsiz, acil çağrı, hava trafik, denizcilik,
+                    madencilik, askerî görev, profesyonel kurtarma, sağlık veya
+                    başka bir güvenlik-kritik haberleşme sisteminin yerine
+                    kullanılmamalıdır.
+                </p>
+            </section>
+
+            <section class="section" id="sorumluluk-siniri">
+                <span class="section-number">Madde 23</span>
+                <h2>Sorumluluğun sınırlandırılması ve riskin kullanıcı tarafından üstlenilmesi</h2>
+
+                <p>
+                    Kullanıcı, uygulamanın kullanımına başlamadan önce cihaz,
+                    bağlantı, mevzuat, trafik, saha, gizlilik ve güvenlik
+                    koşullarını değerlendirdiğini; uygulamayı kullanma kararının
+                    kendisine ait olduğunu kabul eder.
+                </p>
+
+                <p>
+                    Emredici hukuk kurallarının izin verdiği en geniş ölçüde,
+                    geliştirici aşağıdaki nedenlerle doğabilecek dolaylı,
+                    arızi, sonuçsal veya öngörülemeyen zararlardan sorumlu
+                    tutulamaz:
+                </p>
+
+                <ul class="risk-list">
+                    <li>Bağlantı kurulamadığı veya kesildiği için iletişim sağlanamaması,</li>
+                    <li>Sesli mesajın geç, eksik veya yanlış anlaşılması,</li>
+                    <li>Yanlış ya da güncel olmayan konum bilgisine dayanılması,</li>
+                    <li>Başka bir kullanıcının yanıltıcı, hukuka aykırı veya kötü niyetli davranışı,</li>
+                    <li>Konvoy kodu veya QR davetinin yetkisiz kişilerce kullanılması,</li>
+                    <li>Cihaz, batarya, kulaklık, interkom, Bluetooth veya Wi-Fi arızası,</li>
+                    <li>Android, Google Play Hizmetleri, AdMob, Billing veya harita hizmeti kesintisi,</li>
+                    <li>Veri, gelir, iş fırsatı, itibar, zaman veya üretim kaybı,</li>
+                    <li>Kullanıcının trafik veya iş güvenliği kurallarına aykırı davranması,</li>
+                    <li>Kullanıcının gerekli yedek iletişim yöntemini bulundurmaması,</li>
+                    <li>Üçüncü kişilerin ses veya konum bilgisini kaydetmesi ya da paylaşması,</li>
+                    <li>Uyumsuz cihaz veya güncel olmayan yazılım kullanılması,</li>
+                    <li>Kullanıcının izinleri, ayarları veya ses seviyesini yanlış yapılandırması.</li>
+                </ul>
+
+                <p>
+                    Kullanıcı; kendi davranışı, cihazı, paylaştığı içerik,
+                    katıldığı konvoy, davet ettiği kişiler, verdiği talimatlar,
+                    konum paylaşımı ve üçüncü kişilerin haklarına ilişkin
+                    gerekli izinlerden sorumludur.
+                </p>
+
+                <p>
+                    Kullanıcının hukuka aykırı kullanımı, üçüncü kişi hakkı
+                    ihlali veya yanlış bilgi paylaşımı nedeniyle geliştiriciye
+                    yöneltilebilecek talepler bakımından kullanıcı, yürürlükteki
+                    hukukun izin verdiği ölçüde doğrudan kendi fiilinden
+                    sorumludur.
+                </p>
+
+                <div class="callout info">
+                    <strong>Emredici hukuk saklıdır</strong>
+                    <p>
+                        Bu maddede yer alan hiçbir hüküm; geliştiricinin kastı,
+                        ağır kusuru veya kanunen sınırlandırılması mümkün olmayan
+                        sorumluluklarını ortadan kaldırmaz. Tüketicilere,
+                        kişisel veri sahiplerine veya diğer kullanıcılara
+                        emredici mevzuatla tanınan haklar saklıdır.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="degisiklikler">
+                <span class="section-number">Madde 24</span>
+                <h2>Uygulama ve politika değişiklikleri</h2>
+
+                <p>
+                    EmCon; güvenlik, teknik gereklilik, işletim sistemi
+                    değişiklikleri, Google politikaları, yeni özellikler veya
+                    mevzuat nedeniyle zaman zaman güncellenebilir.
+                </p>
+
+                <p>
+                    Mikrofon, konum, harita, reklam, abonelik, bağlantı yöntemi
+                    veya veri işleme uygulamalarında önemli değişiklik yapılması
+                    hâlinde bu sayfadaki son güncelleme tarihi yenilenir ve
+                    gerekli olduğu durumlarda uygulama içinde ek bildirim
+                    gösterilebilir.
+                </p>
+
+                <p>
+                    Kullanıcı, uygulamanın güncel sürümünü ve bu metnin güncel
+                    hâlini belirli aralıklarla kontrol etmelidir. Değişiklik
+                    sonrasında uygulamanın kullanılmaya devam edilmesi, yeni
+                    çalışma koşulları hakkında bilgi edinildiği anlamına gelir;
+                    ancak açık rıza gerektiren işlemler için ayrıca kullanıcı
+                    tercihi alınır.
+                </p>
+            </section>
+
+            <section class="section" id="uygulanacak-hukuk">
+                <span class="section-number">Madde 25</span>
+                <h2>Uygulanacak hukuk ve uyuşmazlıklar</h2>
+
+                <p>
+                    Bu metin, kanunlar ihtilafı kuralları ve kullanıcının
+                    bulunduğu ülkede uygulanması zorunlu hükümler saklı kalmak
+                    üzere Türkiye Cumhuriyeti hukukuna göre yorumlanır.
+                </p>
+
+                <p>
+                    Tüketici işlemleri bakımından tüketicinin başvurabileceği
+                    tüketici hakem heyetleri, tüketici mahkemeleri ve mevzuatla
+                    belirlenen diğer yetkili merciler saklıdır.
+                </p>
+
+                <p>
+                    Tüketici işlemi sayılmayan ve tarafların yetki sözleşmesi
+                    yapmasının hukuken mümkün olduğu uyuşmazlıklarda Ankara
+                    mahkemeleri ve icra daireleri yetkili kabul edilir.
+                </p>
+
+                <p>
+                    Bu metindeki herhangi bir hükmün geçersiz, uygulanamaz veya
+                    hükümsüz sayılması, diğer hükümlerin geçerliliğini
+                    kendiliğinden ortadan kaldırmaz. Geçersiz hüküm, amacına en
+                    yakın ve hukuken uygulanabilir kapsamda yorumlanır.
+                </p>
+            </section>
+
+            <section class="section" id="iletisim">
+                <span class="section-number">Madde 26</span>
+                <h2>İletişim</h2>
+
+                <p>
+                    Gizlilik politikası, veri işleme faaliyetleri, kullanım
+                    koşulları, teknik destek, abonelik veya uygulama güvenliği
+                    hakkında geliştiriciyle iletişime geçebilirsiniz.
+                </p>
+
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <small>Geliştirici</small>
+                        <strong>Ümit Faruk Yenici</strong>
+                    </div>
+
+                    <div class="contact-item">
+                        <small>E-posta</small>
+                        <strong>
+                            <a href="mailto:umido.play@gmail.com">
+                                umido.play@gmail.com
+                            </a>
+                        </strong>
+                    </div>
+
+                    <div class="contact-item">
+                        <small>Uygulama</small>
+                        <strong>EmCon – Emergency Connection</strong>
+                    </div>
+
+                    <div class="contact-item">
+                        <small>Paket</small>
+                        <strong>com.emcon.app</strong>
+                    </div>
+                </div>
+
+                <div class="callout success">
+                    <strong>Güvenlik bildirimi</strong>
+                    <p>
+                        Uygulamada güvenlik açığı tespit ettiğinizi
+                        düşünüyorsanız, açığın kötüye kullanılmasını
+                        kolaylaştıracak teknik ayrıntıları herkese açık biçimde
+                        yayımlamadan önce geliştiriciyle e-posta üzerinden
+                        iletişime geçmeniz önerilir.
+                    </p>
+                </div>
+            </section>
+
+        </article>
+    </div>
+
+    <footer class="footer">
+        <p>
+            <strong>EmCon – Emergency Connection</strong><br>
+            Gizlilik Politikası, KVKK Aydınlatma Metni, Kullanım Koşulları ve Risk Bildirimi
+        </p>
+
+        <p>
+            İlk yürürlük tarihi: 29.05.2026<br>
+            Son güncelleme tarihi: 09.07.2026
+        </p>
+
+        <p>
+            © 2026 Ümit Faruk Yenici. Uygulanabilir fikrî mülkiyet hakları saklıdır.
+        </p>
+    </footer>
+
+</main>
+```
+
+</body>
+</html>
