@@ -176,12 +176,95 @@
             gap: 8px;
         }
 
-        .nav-links a {
+        .nav-links > a,
+        .nav-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
             padding: 9px 12px;
+            border: 0;
             border-radius: 10px;
 
+            background: transparent;
             color: var(--text-secondary);
+
+            font: inherit;
             font-size: 0.88rem;
+            font-weight: 650;
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .nav-links > a:hover,
+        .nav-trigger:hover,
+        .nav-dropdown:focus-within .nav-trigger {
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-trigger::after {
+            content: "▾";
+            font-size: 0.72rem;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-dropdown:hover .nav-trigger::after,
+        .nav-dropdown:focus-within .nav-trigger::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            z-index: 20;
+            top: calc(100% + 10px);
+            left: 0;
+
+            min-width: 190px;
+            padding: 8px;
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            background: rgba(8, 21, 36, 0.97);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            pointer-events: none;
+
+            transition:
+                opacity 0.2s ease,
+                visibility 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 9px;
+
+            color: var(--text-secondary);
+            font-size: 0.86rem;
             font-weight: 650;
 
             transition:
@@ -189,9 +272,22 @@
                 color 0.2s ease;
         }
 
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.06);
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus-visible {
+            background: rgba(255, 255, 255, 0.07);
             color: #ffffff;
+        }
+
+        .dropdown-menu a:nth-child(1):hover {
+            color: var(--emcon);
+        }
+
+        .dropdown-menu a:nth-child(2):hover {
+            color: var(--umido);
+        }
+
+        .dropdown-menu a:nth-child(3):hover {
+            color: var(--udbm);
         }
 
         .hero {
@@ -795,10 +891,23 @@
 
             <div class="nav-links">
                 <a href="index.html">Ana Sayfa</a>
-                <a href="#uygulamalar">Uygulamalar</a>
-                <a href="emcon.html">EmCon</a>
-                <a href="umido.html">Umido Mini</a>
-                <a href="udbm.html">U-DBM</a>
+
+                <div class="nav-dropdown">
+                    <button
+                        class="nav-trigger"
+                        type="button"
+                        aria-haspopup="true"
+                    >
+                        Uygulamalar
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="emcon.html">EmCon</a>
+                        <a href="umido.html">Umido Mini</a>
+                        <a href="udbm.html">U-DBM</a>
+                    </div>
+                </div>
+
                 <a href="#hakkinda">Hakkında</a>
                 <a href="mailto:umido.play@gmail.com">İletişim</a>
             </div>
