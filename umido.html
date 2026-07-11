@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="UMiDO; çocukların öğrenme sürecini sade, eğlenceli ve etkileşimli etkinliklerle destekleyen eğitim uygulamasıdır."
+    >
+
+    <meta name="theme-color" content="#07111f">
+
+    <title>UMiDO | Çocuklar İçin Eğitici Uygulama</title>
+
+    <style>
+        :root {
+            --background-dark: #07111f;
+            --background-soft: #0c1a2b;
+            --border: rgba(255, 255, 255, 0.11);
+
+            --text-primary: #f4f8fc;
+            --text-secondary: #aebed0;
+
+            --accent: #f4a84b;
+            --accent-light: #ffd17d;
+            --accent-soft: rgba(244, 168, 75, 0.12);
+            --accent-border: rgba(244, 168, 75, 0.29);
+            --accent-secondary: #ff7f6e;
+
+            --success: #55db92;
+
+            --shadow: 0 25px 70px rgba(0, 0, 0, 0.32);
+            --radius-large: 28px;
+            --radius-medium: 20px;
+            --page-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 12% 10%,
+                    rgba(244, 168, 75, 0.14),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 89% 5%,
+                    rgba(255, 127, 110, 0.13),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    145deg,
+                    var(--background-dark),
+                    var(--background-soft)
+                );
+
+            color: var(--text-primary);
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        .page {
+            width: min(calc(100% - 36px), var(--page-width));
+            margin: 0 auto;
+            padding: 28px 0 40px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+
+            padding: 14px 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            background: rgba(8, 21, 36, 0.72);
+            backdrop-filter: blur(14px);
+
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-mark {
+            display: grid;
+            place-items: center;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-secondary)
+                );
+
+            color: #251606;
+            font-size: 0.92rem;
+            font-weight: 900;
+
+            box-shadow:
+                0 10px 30px rgba(244, 168, 75, 0.2);
+        }
+
+        .brand-text strong {
+            display: block;
+            font-size: 0.98rem;
+            line-height: 1.2;
+        }
+
+        .brand-text span {
+            display: block;
+            margin-top: 3px;
+
+            color: var(--text-secondary);
+            font-size: 0.76rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            padding: 9px 12px;
+            border-radius: 10px;
+
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            font-weight: 650;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            margin-top: 22px;
+            padding: clamp(42px, 8vw, 90px) clamp(24px, 6vw, 72px);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-large);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(47, 40, 45, 0.96),
+                    rgba(14, 27, 44, 0.98)
+                );
+
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            top: -190px;
+            right: -90px;
+
+            width: 450px;
+            height: 450px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(244, 168, 75, 0.23),
+                    transparent 68%
+                );
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            bottom: -230px;
+            left: -130px;
+
+            width: 470px;
+            height: 470px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 127, 110, 0.15),
+                    transparent 70%
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 870px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            margin-bottom: 20px;
+            padding: 8px 13px;
+
+            border: 1px solid var(--accent-border);
+            border-radius: 999px;
+
+            background: rgba(244, 168, 75, 0.07);
+            color: #ffe0ad;
+
+            font-size: 0.8rem;
+            font-weight: 750;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .hero-label::before {
+            content: "";
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--success);
+            box-shadow: 0 0 15px var(--success);
+        }
+
+        h1 {
+            max-width: 900px;
+            margin-bottom: 22px;
+
+            font-size: clamp(2.55rem, 6vw, 5.2rem);
+            line-height: 1.03;
+            letter-spacing: -0.055em;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--accent-light),
+                    var(--accent-secondary)
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin-bottom: 30px;
+
+            color: #bfd0e2;
+            font-size: clamp(1rem, 2vw, 1.18rem);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            min-height: 48px;
+            padding: 11px 18px;
+
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.06);
+
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 750;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+
+            border-color: rgba(244, 168, 75, 0.48);
+            background: rgba(244, 168, 75, 0.12);
+        }
+
+        .button-primary {
+            border-color: transparent;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-secondary)
+                );
+
+            color: #241607;
+        }
+
+        .button-primary:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffc76f,
+                    #ff9b8e
+                );
+        }
+
+        .section {
+            padding: 78px 0 0;
+        }
+
+        .section-header {
+            max-width: 760px;
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            display: block;
+            margin-bottom: 8px;
+
+            color: var(--accent);
+            font-size: 0.79rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            margin-bottom: 12px;
+
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            letter-spacing: -0.035em;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            min-height: 245px;
+            padding: 27px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-medium);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(35, 42, 59, 0.95),
+                    rgba(15, 28, 46, 0.97)
+                );
+
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(244, 168, 75, 0.34);
+        }
+
+        .feature-icon {
+            display: grid;
+            place-items: center;
+
+            width: 52px;
+            height: 52px;
+            margin-bottom: 22px;
+
+            border: 1px solid var(--accent-border);
+            border-radius: 15px;
+
+            background: var(--accent-soft);
+            color: var(--accent-light);
+
+            font-size: 0.83rem;
+            font-weight: 900;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            margin-bottom: 0;
+
+            color: var(--text-secondary);
+            font-size: 0.93rem;
+        }
+
+        .family-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+            gap: 38px;
+
+            padding: clamp(28px, 5vw, 48px);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-medium);
+
+            background: rgba(13, 29, 49, 0.76);
+        }
+
+        .family-panel h2 {
+            margin-bottom: 14px;
+
+            font-size: clamp(1.7rem, 4vw, 2.7rem);
+            letter-spacing: -0.035em;
+        }
+
+        .family-panel p {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        .family-points {
+            display: grid;
+            gap: 11px;
+        }
+
+        .family-points span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 12px 13px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            color: #cad8e5;
+            font-size: 0.85rem;
+            font-weight: 650;
+        }
+
+        .family-points span::before {
+            content: "✓";
+
+            color: var(--accent);
+            font-weight: 900;
+        }
+
+        .cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+
+            margin-top: 78px;
+            padding: clamp(28px, 5vw, 46px);
+
+            border: 1px solid var(--accent-border);
+            border-radius: var(--radius-medium);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(244, 168, 75, 0.11),
+                    rgba(255, 127, 110, 0.08)
+                );
+        }
+
+        .cta h2 {
+            margin-bottom: 8px;
+
+            font-size: clamp(1.55rem, 4vw, 2.35rem);
+            letter-spacing: -0.035em;
+        }
+
+        .cta p {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            margin-top: 34px;
+            padding: 20px 6px 5px;
+
+            color: #879bb1;
+            font-size: 0.8rem;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 900px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .family-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .page {
+                width: min(calc(100% - 20px), var(--page-width));
+                padding-top: 10px;
+            }
+
+            .navbar {
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 38px 22px;
+                border-radius: 20px;
+            }
+
+            h1 {
+                font-size: 2.65rem;
+            }
+
+            .section {
+                padding-top: 58px;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <nav class="navbar">
+
+            <a class="brand" href="index.html">
+                <div class="brand-mark">UM</div>
+
+                <div class="brand-text">
+                    <strong>UMiDO</strong>
+                    <span>Eğlenceli öğrenme deneyimi</span>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="emcon.html">EmCon</a>
+                <a href="umido.html" aria-current="page">UMiDO</a>
+                <a href="udbm.html">U-DBM</a>
+                <a href="mailto:umido.play@gmail.com">İletişim</a>
+            </div>
+
+        </nav>
+
+        <main>
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        Çocuklar için eğitici uygulama
+                    </div>
+
+                    <h1>
+                        Öğrenmeyi
+                        <span class="gradient-text">
+                            eğlenceli bir keşfe
+                        </span>
+                        dönüştürür
+                    </h1>
+
+                    <p>
+                        UMiDO; okul öncesi dönemdeki çocukların öğrenme
+                        sürecini sade, renkli ve etkileşimli etkinliklerle
+                        desteklemek üzere geliştirilen bir eğitim uygulamasıdır.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <!--
+                            Aşağıdaki bağlantıyı gerçek UMiDO Google Play
+                            bağlantısıyla değiştirin.
+                        -->
+                        <a
+                            class="button button-primary"
+                            href="UMIDO_GOOGLE_PLAY_LINKI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Google Play'den İndir
+                        </a>
+
+                        <a class="button" href="#ozellikler">
+                            Uygulamayı Tanıyın
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="section" id="ozellikler">
+
+                <div class="section-header">
+                    <span class="section-label">Öğrenme yaklaşımı</span>
+
+                    <h2>
+                        Çocukların doğal merakını destekleyen içerikler
+                    </h2>
+
+                    <p>
+                        UMiDO, karmaşık menüler yerine çocukların kolayca
+                        anlayabileceği görsel ve etkileşimli bir deneyim
+                        sunmayı amaçlar.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+
+                    <article class="feature-card">
+                        <div class="feature-icon">ÖĞR</div>
+
+                        <h3>Oyunla öğrenme</h3>
+
+                        <p>
+                            Eğitici etkinlikler, çocukların öğrenirken
+                            eğlenmesini destekleyecek sade bir yapıda sunulur.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">GRS</div>
+
+                        <h3>Çocuk dostu tasarım</h3>
+
+                        <p>
+                            Büyük dokunma alanları, belirgin görseller ve kolay
+                            anlaşılır ekranlar ile erişilebilir kullanım
+                            hedeflenir.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">AİL</div>
+
+                        <h3>Aile odaklı kullanım</h3>
+
+                        <p>
+                            Uygulama deneyimi, çocukların güvenli ve kontrollü
+                            biçimde içeriklerle etkileşim kurmasına uygun olarak
+                            tasarlanır.
+                        </p>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <div class="family-panel">
+
+                    <div>
+                        <span class="section-label">
+                            UMiDO deneyimi
+                        </span>
+
+                        <h2>
+                            Sade, renkli ve dikkat dağıtmayan bir öğrenme alanı
+                        </h2>
+
+                        <p>
+                            UMiDO'nun amacı, çocuğun ekranda kaybolması değil;
+                            yaşına uygun etkinlikleri kolayca keşfetmesi ve
+                            öğrenme sürecine aktif biçimde katılmasıdır.
+                        </p>
+                    </div>
+
+                    <div class="family-points">
+                        <span>Okul öncesi yaş grubuna uygun yaklaşım</span>
+                        <span>Basit ve anlaşılır kullanıcı arayüzü</span>
+                        <span>Dokunmatik kullanıma uygun etkinlikler</span>
+                        <span>Eğitim ve eğlenceyi birleştiren yapı</span>
+                        <span>Ebeveyn kontrollü kullanım yaklaşımı</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="cta">
+
+                <div>
+                    <span class="section-label">
+                        UMiDO'yu keşfedin
+                    </span>
+
+                    <h2>
+                        Eğlenceli öğrenme dünyasına katılın
+                    </h2>
+
+                    <p>
+                        Uygulamayı deneyebilir, geliştirme önerilerinizi ve
+                        kullanım deneyiminizi doğrudan iletebilirsiniz.
+                    </p>
+                </div>
+
+                <a
+                    class="button button-primary"
+                    href="UMIDO_GOOGLE_PLAY_LINKI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Uygulamayı İndir
+                </a>
+
+            </section>
+
+        </main>
+
+        <footer>
+            <span>
+                © 2026 Ümit Faruk Yenici. Tüm hakları saklıdır.
+            </span>
+
+            <a href="mailto:umido.play@gmail.com">
+                umido.play@gmail.com
+            </a>
+        </footer>
+
+    </div>
