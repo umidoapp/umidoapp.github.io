@@ -13,13 +13,14 @@
         content="Ümit Faruk Yenici tarafından geliştirilen EmCon, Umido Mini ve U-DBM uygulamaları."
     >
 
-    <title>Uygulamalar | EmCon, UMIDO Mini ve U-DBM</title>
+    <meta name="theme-color" content="#07111f">
+
+    <title>Uygulamalar | EmCon, Umido Mini ve U-DBM</title>
 
     <style>
         :root {
             --background-dark: #07111f;
             --background-soft: #0c1a2b;
-            --surface: rgba(18, 35, 56, 0.88);
             --surface-hover: rgba(25, 48, 75, 0.96);
             --border: rgba(255, 255, 255, 0.11);
 
@@ -29,6 +30,8 @@
             --emcon: #31d5c8;
             --umido: #f4a84b;
             --udbm: #7e91ff;
+            --success: #55db92;
+            --upcoming: #f4a84b;
 
             --shadow: 0 25px 70px rgba(0, 0, 0, 0.32);
             --radius-large: 28px;
@@ -84,6 +87,19 @@
             text-decoration: none;
         }
 
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid rgba(49, 213, 200, 0.55);
+            outline-offset: 4px;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
         .page {
             width: min(calc(100% - 36px), var(--page-width));
             margin: 0 auto;
@@ -103,6 +119,7 @@
 
             background: rgba(8, 21, 36, 0.72);
             backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
 
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
         }
@@ -154,6 +171,8 @@
         .nav-links {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
             gap: 8px;
         }
 
@@ -271,13 +290,6 @@
 
             background: var(--emcon);
             box-shadow: 0 0 15px var(--emcon);
-        }
-
-        h1,
-        h2,
-        h3,
-        p {
-            margin-top: 0;
         }
 
         h1 {
@@ -457,6 +469,7 @@
             border-radius: 50%;
 
             opacity: 0.18;
+            pointer-events: none;
         }
 
         .app-card.emcon::after {
@@ -479,6 +492,7 @@
             flex-direction: column;
 
             height: 100%;
+            min-height: 299px;
         }
 
         .app-icon {
@@ -530,6 +544,22 @@
             letter-spacing: -0.035em;
         }
 
+        .app-title-link {
+            transition: color 0.2s ease;
+        }
+
+        .emcon .app-title-link:hover {
+            color: var(--emcon);
+        }
+
+        .umido .app-title-link:hover {
+            color: var(--umido);
+        }
+
+        .udbm .app-title-link:hover {
+            color: var(--udbm);
+        }
+
         .app-card p {
             margin-bottom: 25px;
 
@@ -566,37 +596,33 @@
             height: 7px;
 
             border-radius: 50%;
-            background: #55db92;
+            background: var(--success);
             box-shadow: 0 0 13px rgba(85, 219, 146, 0.7);
+        }
+
+        .status-upcoming::before {
+            background: var(--upcoming);
+            box-shadow: 0 0 13px rgba(244, 168, 75, 0.65);
         }
 
         .card-link {
             color: #ffffff;
             font-size: 0.84rem;
             font-weight: 750;
+
+            transition: color 0.2s ease;
         }
 
-        .card-link:hover {
+        .emcon .card-link:hover {
             color: var(--emcon);
         }
 
-        .udbm-card-content {
-            display: grid;
-            place-items: center;
-
-            height: 100%;
-            min-height: 270px;
-
-            text-align: center;
+        .umido .card-link:hover {
+            color: var(--umido);
         }
 
-        .udbm-card-content .app-icon {
-            margin: 0 auto 22px;
-        }
-
-        .udbm-card-content h3 {
-            margin-bottom: 0;
-            font-size: 2rem;
+        .udbm .card-link:hover {
+            color: var(--udbm);
         }
 
         .about {
@@ -665,6 +691,16 @@
             color: #ffffff;
         }
 
+        @media (max-width: 980px) {
+            .navbar {
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                max-width: 520px;
+            }
+        }
+
         @media (max-width: 900px) {
             .app-grid {
                 grid-template-columns: 1fr;
@@ -672,6 +708,10 @@
 
             .app-card {
                 min-height: 310px;
+            }
+
+            .app-content {
+                min-height: 254px;
             }
 
             .about-grid {
@@ -690,7 +730,7 @@
             }
 
             .navbar {
-                align-items: flex-start;
+                align-items: center;
             }
 
             .nav-links {
@@ -714,9 +754,25 @@
                 padding: 23px;
             }
 
+            .app-content {
+                min-height: 264px;
+            }
+
             footer {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
             }
         }
     </style>
@@ -726,9 +782,10 @@
 
     <div class="page">
 
-        <nav class="navbar">
-            <a class="brand" href="#anasayfa">
-                <div class="brand-mark">UF</div>
+        <nav class="navbar" aria-label="Ana menü">
+
+            <a class="brand" href="index.html" aria-label="Ana sayfaya dön">
+                <div class="brand-mark" aria-hidden="true">UF</div>
 
                 <div class="brand-text">
                     <strong>Ümit Faruk Yenici</strong>
@@ -737,16 +794,21 @@
             </a>
 
             <div class="nav-links">
-                <a href="#anasayfa">Ana Sayfa</a>
+                <a href="index.html">Ana Sayfa</a>
                 <a href="#uygulamalar">Uygulamalar</a>
+                <a href="emcon.html">EmCon</a>
+                <a href="umido.html">Umido Mini</a>
+                <a href="udbm.html">U-DBM</a>
                 <a href="#hakkinda">Hakkında</a>
                 <a href="mailto:umido.play@gmail.com">İletişim</a>
             </div>
+
         </nav>
 
         <main>
 
             <section class="hero" id="anasayfa">
+
                 <div class="hero-content">
 
                     <div class="hero-label">
@@ -761,13 +823,17 @@
                     </h1>
 
                     <p>
-                        Haberleşme, eğitim ve dijital işletme yönetimi alanlarında
-                        gerçek ihtiyaçlara yönelik geliştirilen uygulamaları
-                        keşfedin.
+                        Haberleşme, eğitim ve dijital işletme yönetimi
+                        alanlarında gerçek ihtiyaçlara yönelik geliştirilen
+                        uygulamaları keşfedin.
                     </p>
 
                     <div class="hero-actions">
-                        <a class="button button-primary" href="#uygulamalar">
+
+                        <a
+                            class="button button-primary"
+                            href="#uygulamalar"
+                        >
                             Uygulamaları İncele
                         </a>
 
@@ -777,69 +843,102 @@
                         >
                             İletişime Geç
                         </a>
+
                     </div>
 
                 </div>
+
             </section>
 
             <section class="applications" id="uygulamalar">
 
                 <div class="section-header">
-                    <span class="section-label">Uygulamalar</span>
 
-                    <h2>Geliştirilen dijital ürünler</h2>
+                    <span class="section-label">
+                        Uygulamalar
+                    </span>
+
+                    <h2>
+                        Geliştirilen dijital ürünler
+                    </h2>
 
                     <p>
                         Farklı kullanım alanlarına odaklanan, erişilebilir ve
                         kullanıcı merkezli uygulamalar.
                     </p>
+
                 </div>
 
                 <div class="app-grid">
 
                     <article class="app-card emcon">
+
                         <div class="app-content">
 
-                            <div class="app-icon">EC</div>
+                            <div class="app-icon" aria-hidden="true">
+                                EC
+                            </div>
 
                             <span class="app-category">
                                 Haberleşme
                             </span>
 
-                            <h3>EmCon</h3>
+                            <h3>
+                                <a
+                                    class="app-title-link"
+                                    href="emcon.html"
+                                >
+                                    EmCon
+                                </a>
+                            </h3>
 
                             <p>
-                                Yakındaki cihazlar arasında internet bağlantısına
-                                ihtiyaç duymadan grup ve konvoy haberleşmesini
-                                destekleyen mobil iletişim uygulaması.
+                                Yakındaki cihazlar arasında internet
+                                bağlantısına ihtiyaç duymadan grup ve konvoy
+                                haberleşmesini destekleyen mobil iletişim
+                                uygulaması.
                             </p>
 
                             <div class="app-footer">
-                                <span class="status">Yayında</span>
+
+                                <span class="status">
+                                    Yayında
+                                </span>
 
                                 <a
                                     class="card-link"
-                                    href="emcon.html
-"
-                                    aria-label="EmCon hakkında daha fazla bilgi"
+                                    href="emcon.html"
+                                    aria-label="EmCon sayfasını incele"
                                 >
                                     İncele →
                                 </a>
+
                             </div>
 
                         </div>
+
                     </article>
 
                     <article class="app-card umido">
+
                         <div class="app-content">
 
-                            <div class="app-icon">UM</div>
+                            <div class="app-icon" aria-hidden="true">
+                                UM
+                            </div>
 
                             <span class="app-category">
                                 Eğitim
                             </span>
 
-                            <h3>Umido Mini</h3>
+                            <h3>
+                                <a
+                                    class="app-title-link"
+                                    href="umido.html"
+                                >
+                                    Umido Mini
+                                </a>
+                            </h3>
 
                             <p>
                                 Çocukların öğrenme sürecini eğlenceli, sade ve
@@ -848,53 +947,68 @@
                             </p>
 
                             <div class="app-footer">
-                                <span class="status">Yayında</span>
+
+                                <span class="status">
+                                    Yayında
+                                </span>
 
                                 <a
                                     class="card-link"
-                                    href="umido.html
-"
-                                    aria-label="Umido Mini hakkında daha fazla bilgi"
+                                    href="umido.html"
+                                    aria-label="Umido Mini sayfasını incele"
                                 >
                                     İncele →
                                 </a>
+
                             </div>
 
                         </div>
+
                     </article>
 
                     <article class="app-card udbm">
-                        <div class="udbm-card-content">
-                                <div class="app-icon">UD</div>
+
+                        <div class="app-content">
+
+                            <div class="app-icon" aria-hidden="true">
+                                UD
+                            </div>
+
                             <span class="app-category">
                                 Veri Yönetimi
                             </span>
-                            
-                            <h3>U-DBM</h3>
 
-                            <p>
-                                
-                                
-                                
-                            </p>
+                            <h3>
+                                <a
+                                    class="app-title-link"
+                                    href="udbm.html"
+                                >
+                                    U-DBM
+                                </a>
+                            </h3>
 
-                                
+                            <div class="app-footer">
 
-                                <span class="status">Yakında</span>
+                                <span class="status status-upcoming">
+                                    Yakında
+                                </span>
 
                                 <a
                                     class="card-link"
-                                    href="udbm.html
-"
-                                    aria-label="U-DBM hakkında daha fazla bilgi"
+                                    href="udbm.html"
+                                    aria-label="U-DBM sayfasını incele"
                                 >
                                     İncele →
                                 </a>
+
                             </div>
+
                         </div>
+
                     </article>
 
                 </div>
+
             </section>
 
             <section class="about" id="hakkinda">
@@ -902,6 +1016,7 @@
                 <div class="about-grid">
 
                     <div>
+
                         <span class="section-label">
                             Yaklaşım
                         </span>
@@ -915,6 +1030,7 @@
                             erişilebilirlik ve gerçek çalışma koşullarına uyum
                             ilkeleri doğrultusunda geliştirilmektedir.
                         </p>
+
                     </div>
 
                     <div class="about-badge">
@@ -925,11 +1041,13 @@
                     </div>
 
                 </div>
+
             </section>
 
         </main>
 
         <footer>
+
             <span>
                 © 2026 Ümit Faruk Yenici. Tüm hakları saklıdır.
             </span>
@@ -937,6 +1055,7 @@
             <a href="mailto:umido.play@gmail.com">
                 umido.play@gmail.com
             </a>
+
         </footer>
 
     </div>
