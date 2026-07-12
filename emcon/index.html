@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EmCon Konvoy Daveti</title>
+  <style>body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;margin:32px;line-height:1.45}a,button{font-size:18px}button{padding:12px 16px;border-radius:10px;border:0;background:#1677ff;color:white}</style>
+</head>
+<body>
+  <h1>EmCon konvoy daveti</h1>
+  <p>EmCon yüklüyse bu bağlantı uygulamada açılır. Açılmadıysa Google Play üzerinden yükleyebilirsiniz.</p>
+  <p><button id="openStore">Google Play'den Yükle</button></p>
+  <p><a id="storeLink" href="https://play.google.com/store/apps/details?id=com.emcon.app">Google Play sayfasını aç</a></p>
+  <script>
+    const webStore = 'https://play.google.com/store/apps/details?id=com.emcon.app';
+    const market = 'market://details?id=com.emcon.app';
+    function openStore(){
+      window.location.href = market;
+      setTimeout(() => { window.location.href = webStore; }, 900);
+    }
+    document.getElementById('openStore').addEventListener('click', openStore);
+  </script>
+</body>
+</html>
