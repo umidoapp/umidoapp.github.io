@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.emcon.app",
+      "sha256_cert_fingerprints": [
+        "9E:78:E6:80:A2:FE:B2:0B:3A:04:9C:87:2A:BB:13:EF:27:97:5B:B9:BF:36:63:04:2F:2E:16:26:6D:AC:CC:D4"
+      ]
+    }
+  }
+]
