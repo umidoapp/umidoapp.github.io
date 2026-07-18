@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="EmCon; konvoylar, grup sürüşleri, doğa faaliyetleri ve saha ekipleri için geliştirilen sesli grup haberleşme uygulamasıdır."
+    >
+
+    <meta name="theme-color" content="#07111f">
+
+    <title>EmCon | Grup ve Konvoy Haberleşmesi</title>
+
+    <style>
+        :root {
+            --background-dark: #07111f;
+            --background-soft: #0c1a2b;
+            --surface: rgba(18, 35, 56, 0.88);
+            --surface-strong: rgba(20, 41, 65, 0.96);
+            --border: rgba(255, 255, 255, 0.11);
+
+            --text-primary: #f4f8fc;
+            --text-secondary: #aebed0;
+
+            --accent: #31d5c8;
+            --accent-soft: rgba(49, 213, 200, 0.12);
+            --accent-border: rgba(49, 213, 200, 0.28);
+            --accent-secondary: #53a8ff;
+
+            --success: #55db92;
+
+            --shadow: 0 25px 70px rgba(0, 0, 0, 0.32);
+            --radius-large: 28px;
+            --radius-medium: 20px;
+            --page-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 12% 10%,
+                    rgba(49, 213, 200, 0.14),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 4%,
+                    rgba(83, 168, 255, 0.14),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    145deg,
+                    var(--background-dark),
+                    var(--background-soft)
+                );
+
+            color: var(--text-primary);
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        .page {
+            width: min(calc(100% - 36px), var(--page-width));
+            margin: 0 auto;
+            padding: 28px 0 40px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+
+            padding: 14px 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            background: rgba(8, 21, 36, 0.72);
+            backdrop-filter: blur(14px);
+
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-mark {
+            display: grid;
+            place-items: center;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-secondary)
+                );
+
+            color: #07111f;
+            font-size: 0.92rem;
+            font-weight: 900;
+
+            box-shadow:
+                0 10px 30px rgba(49, 213, 200, 0.2);
+        }
+
+        .brand-text strong {
+            display: block;
+            font-size: 0.98rem;
+            line-height: 1.2;
+        }
+
+        .brand-text span {
+            display: block;
+            margin-top: 3px;
+
+            color: var(--text-secondary);
+            font-size: 0.76rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            padding: 9px 12px;
+            border-radius: 10px;
+
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            font-weight: 650;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            margin-top: 22px;
+            padding: clamp(42px, 8vw, 90px) clamp(24px, 6vw, 72px);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-large);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(16, 40, 66, 0.97),
+                    rgba(8, 24, 42, 0.97)
+                );
+
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            top: -180px;
+            right: -80px;
+
+            width: 430px;
+            height: 430px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(49, 213, 200, 0.21),
+                    transparent 68%
+                );
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            bottom: -240px;
+            left: -130px;
+
+            width: 470px;
+            height: 470px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(83, 168, 255, 0.16),
+                    transparent 70%
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 870px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            margin-bottom: 20px;
+            padding: 8px 13px;
+
+            border: 1px solid var(--accent-border);
+            border-radius: 999px;
+
+            background: rgba(49, 213, 200, 0.07);
+            color: #aef8f2;
+
+            font-size: 0.8rem;
+            font-weight: 750;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .hero-label::before {
+            content: "";
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--success);
+            box-shadow: 0 0 15px var(--success);
+        }
+
+        h1 {
+            max-width: 900px;
+            margin-bottom: 22px;
+
+            font-size: clamp(2.55rem, 6vw, 5.2rem);
+            line-height: 1.03;
+            letter-spacing: -0.055em;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--accent),
+                    #7ea6ff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin-bottom: 30px;
+
+            color: #bfd0e2;
+            font-size: clamp(1rem, 2vw, 1.18rem);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            min-height: 48px;
+            padding: 11px 18px;
+
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.06);
+
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 750;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+
+            border-color: rgba(49, 213, 200, 0.45);
+            background: rgba(49, 213, 200, 0.12);
+        }
+
+        .button-primary {
+            border-color: transparent;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-secondary)
+                );
+
+            color: #06121f;
+        }
+
+        .button-primary:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #71eee4,
+                    #7bbaff
+                );
+        }
+
+        .section {
+            padding: 78px 0 0;
+        }
+
+        .section-header {
+            max-width: 760px;
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            display: block;
+            margin-bottom: 8px;
+
+            color: var(--accent);
+            font-size: 0.79rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            margin-bottom: 12px;
+
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            letter-spacing: -0.035em;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            min-height: 245px;
+            padding: 27px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-medium);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(21, 42, 67, 0.94),
+                    rgba(12, 27, 46, 0.96)
+                );
+
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(49, 213, 200, 0.32);
+        }
+
+        .feature-icon {
+            display: grid;
+            place-items: center;
+
+            width: 52px;
+            height: 52px;
+            margin-bottom: 22px;
+
+            border: 1px solid var(--accent-border);
+            border-radius: 15px;
+
+            background: var(--accent-soft);
+            color: var(--accent);
+
+            font-size: 0.83rem;
+            font-weight: 900;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            margin-bottom: 0;
+
+            color: var(--text-secondary);
+            font-size: 0.93rem;
+        }
+
+        .audience-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+            gap: 38px;
+
+            padding: clamp(28px, 5vw, 48px);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-medium);
+
+            background: rgba(13, 29, 49, 0.76);
+        }
+
+        .audience-panel h2 {
+            margin-bottom: 14px;
+
+            font-size: clamp(1.7rem, 4vw, 2.7rem);
+            letter-spacing: -0.035em;
+        }
+
+        .audience-panel p {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        .audience-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 11px;
+        }
+
+        .audience-list span {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 11px 12px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            color: #cad8e5;
+            font-size: 0.83rem;
+            font-weight: 650;
+        }
+
+        .audience-list span::before {
+            content: "";
+
+            flex: 0 0 auto;
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .notice {
+            margin-top: 22px;
+            padding: 20px 22px;
+
+            border: 1px solid rgba(244, 168, 75, 0.22);
+            border-radius: 15px;
+
+            background: rgba(244, 168, 75, 0.06);
+
+            color: #d5c4ad;
+            font-size: 0.85rem;
+        }
+
+        .cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+
+            margin-top: 78px;
+            padding: clamp(28px, 5vw, 46px);
+
+            border: 1px solid var(--accent-border);
+            border-radius: var(--radius-medium);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(49, 213, 200, 0.11),
+                    rgba(83, 168, 255, 0.08)
+                );
+        }
+
+        .cta h2 {
+            margin-bottom: 8px;
+
+            font-size: clamp(1.55rem, 4vw, 2.35rem);
+            letter-spacing: -0.035em;
+        }
+
+        .cta p {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        .support-logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 18px;
+        }
+
+        .support-logo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            min-height: 188px;
+            padding: 18px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-medium);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(21, 42, 67, 0.9),
+                    rgba(12, 27, 46, 0.94)
+                );
+
+            text-align: center;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .support-logo-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(49, 213, 200, 0.32);
+        }
+
+        .support-logo-media {
+            display: grid;
+            place-items: center;
+
+            width: 100%;
+            height: 112px;
+            margin-bottom: 16px;
+
+            overflow: hidden;
+
+            border: 1px solid rgba(7, 17, 31, 0.1);
+            border-radius: 16px;
+
+            background: #ffffff;
+        }
+
+        .support-logo-media img {
+            display: block;
+
+            max-width: 88%;
+            max-height: 78px;
+
+            object-fit: contain;
+        }
+
+        .support-logo-pdf {
+            width: 100%;
+            height: 100%;
+
+            border: 0;
+            background: #ffffff;
+
+            pointer-events: none;
+        }
+
+        .support-pdf-fallback {
+            display: grid;
+            place-items: center;
+
+            width: 100%;
+            height: 100%;
+
+            color: #07111f;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .support-logo-name {
+            color: #eaf4ff;
+            font-size: 0.9rem;
+            font-weight: 750;
+        }
+
+        .support-logo-name:hover {
+            color: var(--accent);
+        }
+
+        .support-placeholder,
+        .support-empty {
+            grid-column: 1 / -1;
+
+            padding: 18px 20px;
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.035);
+            color: var(--text-secondary);
+
+            font-size: 0.9rem;
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            margin-top: 34px;
+            padding: 20px 6px 5px;
+
+            color: #879bb1;
+            font-size: 0.8rem;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 900px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .audience-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .page {
+                width: min(calc(100% - 20px), var(--page-width));
+                padding-top: 10px;
+            }
+
+            .navbar {
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 38px 22px;
+                border-radius: 20px;
+            }
+
+            h1 {
+                font-size: 2.65rem;
+            }
+
+            .section {
+                padding-top: 58px;
+            }
+
+            .audience-list {
+                grid-template-columns: 1fr;
+            }
+
+            .support-logo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <nav class="navbar">
+
+            <a class="brand" href="index.html">
+                <div class="brand-mark">EC</div>
+
+                <div class="brand-text">
+                    <strong>EmCon</strong>
+                    <span>Emergency Connection</span>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="emcon.html" aria-current="page">EmCon</a>
+                <a href="umido.html">UMiDO</a>
+                <a href="udbm.html">U-DBM</a>
+                <a href="mailto:umido.play@gmail.com">İletişim</a>
+            </div>
+
+        </nav>
+
+        <main>
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        Google Play'de yayında
+                    </div>
+
+                    <h1>
+                        Konvoylar ve ekipler için
+                        <span class="gradient-text">
+                            sesli grup iletişimi
+                        </span>
+                    </h1>
+
+                    <p>
+                        EmCon; motosiklet, bisiklet, ATV, otomobil ve doğa
+                        gruplarının yakın cihazlar arasında kolayca bağlantı
+                        kurmasına ve grup hâlinde sesli iletişim sağlamasına
+                        yardımcı olmak üzere geliştirildi.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a
+                            class="button button-primary"
+                            href="https://play.google.com/store/apps/details?id=com.emcon.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Google Play'den İndir
+                        </a>
+
+                        <a class="button" href="#ozellikler">
+                            Özellikleri İncele
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="section" id="ozellikler">
+
+                <div class="section-header">
+                    <span class="section-label">Temel özellikler</span>
+
+                    <h2>
+                        Grup iletişimini hızlı ve erişilebilir hâle getirir
+                    </h2>
+
+                    <p>
+                        Konvoy oluşturma, QR kod ile katılım ve bas-konuş
+                        yaklaşımı sayesinde grup üyelerinin iletişim sürecini
+                        sadeleştirir.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+
+                    <article class="feature-card">
+                        <div class="feature-icon">QR</div>
+
+                        <h3>Kolay katılım</h3>
+
+                        <p>
+                            Oluşturulan gruba referans kodu veya QR kod
+                            kullanılarak hızlı biçimde katılım sağlanabilir.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">PTT</div>
+
+                        <h3>Bas-konuş iletişimi</h3>
+
+                        <p>
+                            Kullanıcılar, sade bir bas-konuş arayüzü üzerinden
+                            grup içindeki diğer katılımcılara sesini iletebilir.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">GRP</div>
+
+                        <h3>Grup odaklı yapı</h3>
+
+                        <p>
+                            Lider ve katılımcı rolleri sayesinde konvoy veya
+                            saha grubunun iletişimi daha kontrollü biçimde
+                            yönetilebilir.
+                        </p>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <div class="audience-panel">
+
+                    <div>
+                        <span class="section-label">
+                            Kullanım alanları
+                        </span>
+
+                        <h2>
+                            Hareket hâlindeki gruplar için geliştirildi
+                        </h2>
+
+                        <p>
+                            EmCon, farklı araç ve etkinlik gruplarının ortak
+                            iletişim ihtiyacına yönelik esnek bir kullanım
+                            yaklaşımı sunar.
+                        </p>
+                    </div>
+
+                    <div class="audience-list">
+                        <span>Motosiklet konvoyları</span>
+                        <span>ATV ve off-road grupları</span>
+                        <span>Bisiklet toplulukları</span>
+                        <span>Otomobil konvoyları</span>
+                        <span>Kamp ve doğa sporları</span>
+                        <span>Arama-kurtarma ekipleri</span>
+                        <span>Afet gönüllüleri</span>
+                        <span>Saha çalışma ekipleri</span>
+                    </div>
+
+                </div>
+
+                <div class="notice">
+                    EmCon, resmî acil çağrı hizmetlerinin veya profesyonel
+                    telsiz sistemlerinin yerine geçmez. Kullanıcılar, trafik
+                    güvenliği ile yürürlükteki mevzuata uygun hareket etmekten
+                    sorumludur.
+                </div>
+
+            </section>
+
+            <section class="cta">
+
+                <div>
+                    <span class="section-label">
+                        EmCon'u deneyin
+                    </span>
+
+                    <h2>
+                        Grubunuzu oluşturun ve iletişime başlayın
+                    </h2>
+
+                    <p>
+                        EmCon'u ücretsiz olarak indirebilir, kullanım
+                        deneyiminizi ve geliştirme önerilerinizi iletebilirsiniz.
+                    </p>
+                </div>
+
+                <a
+                    class="button button-primary"
+                    href="https://play.google.com/store/apps/details?id=com.emcon.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Uygulamayı İndir
+                </a>
+
+            </section>
+
+            <section class="section" id="destek-veren-organizasyonlar">
+
+                <div class="section-header">
+                    <span class="section-label">
+                        Destek&#231;iler
+                    </span>
+
+                    <h2>
+                        Destek Veren Organizasyonlar
+                    </h2>
+
+                    <p>
+                        EmCon'un geli&#351;imine destek veren organizasyonlar&#305;n
+                        logolar&#305; burada yer al&#305;r.
+                    </p>
+                </div>
+
+                <div
+                    class="support-logo-grid"
+                    data-support-logos
+                    aria-live="polite"
+                >
+                    <div class="support-placeholder">
+                        Logolar y&#252;kleniyor...
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer>
+            <span>
+                © 2026 Ümit Faruk Yenici. Tüm hakları saklıdır.
+            </span>
+
+            <a href="mailto:umido.play@gmail.com">
+                umido.play@gmail.com
+            </a>
+        </footer>
+
+    </div>
+
+    <script>
+        (() => {
+            const container = document.querySelector("[data-support-logos]");
+
+            if (!container) {
+                return;
+            }
+
+            const logoExtensions = new Set(["png", "jpg", "jpeg", "pdf"]);
+            const supportsApiUrl =
+                "https://api.github.com/repos/umidoapp/umidoapp.github.io/contents/supports?ref=main";
+
+            const fallbackFiles = [
+                {
+                    name: "Turlayanlar yeni logo.pdf",
+                    path: "supports/Turlayanlar yeni logo.pdf",
+                    type: "file"
+                }
+            ];
+
+            const getExtension = (name) =>
+                name.split(".").pop().toLowerCase();
+
+            const getDisplayName = (name) =>
+                name
+                    .replace(/\.[^/.]+$/, "")
+                    .replace(/[-_]+/g, " ")
+                    .trim();
+
+            const getRelativeUrl = (path) =>
+                path.split("/").map(encodeURIComponent).join("/");
+
+            const createLogoCard = (file) => {
+                const extension = getExtension(file.name);
+                const title = getDisplayName(file.name);
+                const url = getRelativeUrl(file.path || `supports/${file.name}`);
+
+                const card = document.createElement("article");
+                card.className = "support-logo-card";
+
+                const media = document.createElement("div");
+                media.className = "support-logo-media";
+
+                if (extension === "pdf") {
+                    const object = document.createElement("object");
+                    object.className = "support-logo-pdf";
+                    object.type = "application/pdf";
+                    object.data = `${url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`;
+                    object.setAttribute("aria-label", `${title} PDF logosu`);
+
+                    const fallback = document.createElement("span");
+                    fallback.className = "support-pdf-fallback";
+                    fallback.textContent = "PDF logo";
+
+                    object.appendChild(fallback);
+                    media.appendChild(object);
+                } else {
+                    const image = document.createElement("img");
+                    image.src = url;
+                    image.alt = `${title} logosu`;
+                    image.loading = "lazy";
+                    image.decoding = "async";
+
+                    media.appendChild(image);
+                }
+
+                const link = document.createElement("a");
+                link.className = "support-logo-name";
+                link.href = url;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.textContent = title;
+
+                card.appendChild(media);
+                card.appendChild(link);
+
+                return card;
+            };
+
+            const renderFiles = (files) => {
+                const logos = files
+                    .filter((file) => file.type === "file")
+                    .filter((file) => logoExtensions.has(getExtension(file.name)));
+
+                container.innerHTML = "";
+
+                if (logos.length === 0) {
+                    const empty = document.createElement("div");
+                    empty.className = "support-empty";
+                    empty.textContent =
+                        "Destek logolar\u0131 yak\u0131nda burada yer alacak.";
+
+                    container.appendChild(empty);
+                    return;
+                }
+
+                const fragment = document.createDocumentFragment();
+
+                logos.forEach((file) => {
+                    fragment.appendChild(createLogoCard(file));
+                });
+
+                container.appendChild(fragment);
+            };
+
+            fetch(supportsApiUrl, {
+                headers: {
+                    Accept: "application/vnd.github+json"
+                }
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Destek logolar\u0131 al\u0131namad\u0131.");
+                    }
+
+                    return response.json();
+                })
+                .then((files) => {
+                    renderFiles(Array.isArray(files) ? files : []);
+                })
+                .catch(() => {
+                    renderFiles(fallbackFiles);
+                });
+        })();
+    </script>
+
+</body>
+</html>
